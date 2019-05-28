@@ -9,10 +9,12 @@ import { RouterModule } from "@angular/router";
 import { AdminModule } from './admin/admin.module';
 import { ProviderModule } from './provider/provider.module';
 import { SharedModule } from './shared/shared.module';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
