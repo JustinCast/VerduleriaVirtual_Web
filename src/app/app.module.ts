@@ -9,12 +9,11 @@ import { RouterModule } from "@angular/router";
 import { AdminModule } from './admin/admin.module';
 import { ProviderModule } from './provider/provider.module';
 import { SharedModule } from './shared/shared.module';
-import { LoginComponent } from './login/login.component';
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 
 @NgModule({
   declarations: [
-    AppComponent,
-    LoginComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,
@@ -23,7 +22,9 @@ import { LoginComponent } from './login/login.component';
     AppRoutingModule,
     BrowserAnimationsModule,
     SharedModule,
-    RouterModule.forRoot(ROUTES)
+    RouterModule.forRoot(ROUTES),
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
