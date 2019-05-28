@@ -1,12 +1,15 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { LoginComponent } from './login/login.component';
-import { ProviderComponent } from './provider/provider.component';
+import { ProviderRootComponent } from './provider-root/provider-root.component';
+import { ProviderRoutingModule } from './provider-routing.module';
 
 @NgModule({
-  declarations: [LoginComponent, ProviderComponent],
+  declarations: [ProviderRootComponent],
   imports: [
-    CommonModule
-  ]
+    CommonModule,
+    ProviderRootComponent,
+    ProviderRoutingModule
+  ],
+  exports: [ProviderRootComponent]
 })
 export class ProviderModule { }
