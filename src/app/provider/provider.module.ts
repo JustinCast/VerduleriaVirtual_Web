@@ -4,6 +4,7 @@ import { StocktakingComponent } from './stocktaking/stocktaking.component';
 import { CreateStocktakingComponent } from './create-stocktaking/create-stocktaking.component';
 import { ProviderRootComponent } from './provider-root/provider-root.component';
 import { ProviderRoutingModule } from './provider-routing.module';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -13,7 +14,8 @@ import { ProviderRoutingModule } from './provider-routing.module';
   ],
   imports: [
     CommonModule,
-    ProviderRoutingModule
+    ProviderRoutingModule,
+    SharedModule
   ],
   exports: [ProviderRootComponent]
 })
