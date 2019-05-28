@@ -5,10 +5,9 @@ import { AdminRoutingModule } from './admin-routing.module';
 import { AddProductComponent } from './add-product/add-product.component';
 
 @NgModule({
-  declarations: [AdminRootComponent, AddProductComponent],
+  declarations: [AdminRootComponent, AddProductComponent, AdminRootComponent],
   imports: [
     CommonModule,
-    AdminRootComponent,
     AdminRoutingModule
   ],
   exports: [AdminRootComponent]

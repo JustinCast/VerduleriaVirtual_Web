@@ -4,10 +4,9 @@ import { ProviderRootComponent } from './provider-root/provider-root.component';
 import { ProviderRoutingModule } from './provider-routing.module';
 
 @NgModule({
-  declarations: [ProviderRootComponent],
+  declarations: [ProviderRootComponent, ProviderRootComponent],
   imports: [
     CommonModule,
-    ProviderRootComponent,
     ProviderRoutingModule
   ],
   exports: [ProviderRootComponent]
