@@ -1,0 +1,18 @@
+.mainContainer{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  background-color: lightslategrey
+}
+
+#buttonsContainer{
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+}
+
+#data{
+  background-color: gree;
+  width: 70%;
+  padding: 2%;
+}
