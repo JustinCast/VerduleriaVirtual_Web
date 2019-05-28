@@ -1,0 +1,28 @@
+@import '../../ui-utils/variables';
+
+h1 {
+  color: $primary-text-color
+}
+#main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: auto;
+  width: 70%;
+  height: 100%;
+}
+form{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 40%;
+  margin: auto;
+  text-align: center;
+  border: 0.5px solid rgba($color: #b8b8b8b4, $alpha: 0.2);
+  border-radius: 15px;
+  padding: 5%
+}
+mat-form-field{
+  width: 100%;
+  margin: auto
+}
