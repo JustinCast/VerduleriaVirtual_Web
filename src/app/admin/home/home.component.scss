@@ -1,0 +1,16 @@
+.mainContainer{
+  display:flex; 
+  flex-direction: column;
+}
+
+.navBar{
+  background-color: green;
+  width: 100%;
+  display:flex; 
+  justify-content: space-between;
+  flex-direction: row;
+}
+
+a{
+  padding: 0.5% 1% 0.5% 1%;
+}
