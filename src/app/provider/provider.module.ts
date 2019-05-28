@@ -13,7 +13,6 @@ import { ProviderRoutingModule } from './provider-routing.module';
   ],
   imports: [
     CommonModule,
-    ProviderRootComponent,
     ProviderRoutingModule
   ],
   exports: [ProviderRootComponent]
