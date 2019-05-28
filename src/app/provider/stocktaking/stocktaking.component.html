@@ -1,19 +1,18 @@
-<div>
-  <div class="mainContainer">
-    <h2>Inventario</h2>
-    <div id="data">
-      <h3>nombre del producto</h3>
-      <p>Precio</p>
+<h2 class="title">Inventario</h2>
+<div class="mainContainer">
+    <div class="stocktakingContainer shadow-sm"
+    *ngFor="let stock of stockList"
+    >
+      <h3>{{stock.productName}}</h3>
+      <p>Precio: {{stock.prince}}</p>
+      <p>Cantidad: {{stock.quantity}}</p>
       <p>Descripción</p>
-      <p>Cantidad</p>
-    </div>
-    <div id="buttonsContainer">
-      <button>Crear</button>
-      <button>Bloquear</button>
-      <button>Eliminar</button>
-    </div>
-    <div id="buttonAdd">
-      <button>+</button>
-    </div>
-  </div>
+      <p>{{stock.description}}</p>
+      <div id="iconsContainer">
+        <i class="material-icons"> delete </i>
+        <i class="material-icons"> not_interested </i>
+        <i class="material-icons"> create </i>
+      </div>
+    </div>  
 </div>
+<button mat-button id="buttonAdd" (click)="openCreateStock()">+</button>

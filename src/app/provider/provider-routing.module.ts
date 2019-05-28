@@ -3,11 +3,13 @@ import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
 import { ProviderRootComponent } from './provider-root/provider-root.component';
 import { CreateStocktakingComponent } from './create-stocktaking/create-stocktaking.component';
+import { StocktakingComponent } from './stocktaking/stocktaking.component';
 
 const ROUTES: Routes = [
   { path: "provider", component: ProviderRootComponent,
   children: [
-    { path: 'create-stocktaking', component: CreateStocktakingComponent}
+    { path: 'create-stocktaking', component: CreateStocktakingComponent},
+    { path: 'show-stocktaking', component: StocktakingComponent}
   ]
 
 }

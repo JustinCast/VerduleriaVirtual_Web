@@ -1,16 +1,31 @@
 .mainContainer{
   display:flex; 
   flex-direction: column;
+  text-align: center;
 }
 
 .navBar{
   background-color: green;
   width: 100%;
   display:flex; 
-  justify-content: space-between;
+  justify-content: center;
   flex-direction: row;
 }
 
 a{
   padding: 0.5% 1% 0.5% 1%;
+  color: white;
+}
+
+a:hover{
+  cursor: pointer;
+}
+
+h1{
+  margin-top: 22%;
+}
+
+.leaveOption{
+  right: 2%; 
+  position: absolute;
 }

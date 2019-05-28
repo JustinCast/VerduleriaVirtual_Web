@@ -1,22 +1,43 @@
 .mainContainer{
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  background-color: lightslategrey
+ display: flex;
+ justify-content: center;
+ flex-direction: column;
+ padding: 3%;
 }
 
-#buttonsContainer{
+.stocktakingContainer{
+  width: 60%;
+  text-align: center;  
+  background-color: lightslategrey;
+  padding: 2%;
+  margin: 0.5% auto 0.5% auto;
+  border-radius: 5px;
+}
+
+#iconsContainer{
   display: flex;
-  justify-content: center;
+  justify-content:flex-end;
   flex-direction: row;
 }
 
-#data{
-  background-color: gree;
-  width: 70%;
+#buttonAdd{
+  position: fixed;
+  right: 2%;
+  bottom: 2%;
+  background-color: lightslategrey;
+}
+
+.title{
+  position: fixed;
+  text-align: center;
   padding: 2%;
 }
 
-#buttonAdd{
-  position: flexed;
+i{
+  margin: 0.5%;
+}
+
+i:hover{
+  color:white;
+  cursor: pointer;
 }

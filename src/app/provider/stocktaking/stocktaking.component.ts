@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { DialogService } from 'src/app/services/dialog.service';
+
 
 @Component({
   selector: 'app-stocktaking',
@@ -7,9 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class StocktakingComponent implements OnInit {
 
-  constructor() { }
+  stockList: Array<any>;
+
+  constructor(private _dialogService:DialogService) { }
 
   ngOnInit() {
+    this.stockList=[{productName:'lechuga',description:'Este productos es excelente',price:2000, quantity:20},{productName:'lechuga',description:'Este productos es excelente',price:2000, quantity:20},{productName:'lechuga',description:'Este productos es excelente',price:2000, quantity:20},{productName:'lechuga',description:'Este productos es excelente',price:2000, quantity:20}]
   }
 
+  openCreateStock(){
+    console.log("algo")
+    this._dialogService.openCreateStock();
+  }
 }
