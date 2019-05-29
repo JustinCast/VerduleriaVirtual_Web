@@ -4,15 +4,16 @@
     *ngFor="let stock of stockList"
     >
       <h3>{{stock.productName}}</h3>
-      <p>Precio: {{stock.prince}}</p>
-      <p>Cantidad: {{stock.quantity}}</p>
-      <p>Descripción</p>
       <p>{{stock.description}}</p>
+      <div class="containerPriceAndQuantity">
+        <p>Precio: {{stock.price}}</p>
+        <p>Cantidad: {{stock.quantity}}</p>
+      </div>
       <div id="iconsContainer">
         <i class="material-icons"> delete </i>
         <i class="material-icons"> not_interested </i>
-        <i class="material-icons"> create </i>
+        <i class="material-icons" (click)="openCreateStock(false)"> create </i>
       </div>
     </div>  
 </div>
-<button mat-button id="buttonAdd" (click)="openCreateStock()">+</button>
+<button mat-button id="buttonAdd" (click)="openCreateStock(true)">+</button>

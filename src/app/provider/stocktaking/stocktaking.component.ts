@@ -17,8 +17,7 @@ export class StocktakingComponent implements OnInit {
     this.stockList=[{productName:'lechuga',description:'Este productos es excelente',price:2000, quantity:20},{productName:'lechuga',description:'Este productos es excelente',price:2000, quantity:20},{productName:'lechuga',description:'Este productos es excelente',price:2000, quantity:20},{productName:'lechuga',description:'Este productos es excelente',price:2000, quantity:20}]
   }
 
-  openCreateStock(){
-    console.log("algo")
-    this._dialogService.openCreateStock();
+  openCreateStock(action:boolean){
+    this._dialogService.openCreateStock(action);
   }
 }

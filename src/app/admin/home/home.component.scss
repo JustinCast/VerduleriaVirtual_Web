@@ -1,3 +1,5 @@
+@import '../../ui-utils/variables';
+
 .mainContainer{
   display:flex; 
   flex-direction: column;
@@ -5,7 +7,7 @@
 }
 
 .navBar{
-  background-color: green;
+  background-color: $primary-color;
   width: 100%;
   display:flex; 
   justify-content: center;
@@ -14,11 +16,12 @@
 
 a{
   padding: 0.5% 1% 0.5% 1%;
-  color: white;
+  color: $primary-text-color;
 }
 
 a:hover{
   cursor: pointer;
+  color: $secondary-text-color;
 }
 
 h1{

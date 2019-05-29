@@ -1,3 +1,5 @@
+@import '../../ui-utils/variables';
+
 .mainContainer{
  display: flex;
  justify-content: center;
@@ -8,7 +10,7 @@
 .stocktakingContainer{
   width: 60%;
   text-align: center;  
-  background-color: lightslategrey;
+  background-color: $primary-color;
   padding: 2%;
   margin: 0.5% auto 0.5% auto;
   border-radius: 5px;
@@ -24,7 +26,7 @@
   position: fixed;
   right: 2%;
   bottom: 2%;
-  background-color: lightslategrey;
+  background-color: $primary-color;
 }
 
 .title{
@@ -35,9 +37,18 @@
 
 i{
   margin: 0.5%;
+  color: $primary-text-color;
 }
 
 i:hover{
-  color:white;
+  color:$secondary-text-color;
   cursor: pointer;
+}
+
+.containerPriceAndQuantity{
+  display: flex; 
+  justify-content: space-between; 
+  flex-direction: row; 
+  width: 40%; 
+  margin: auto
 }

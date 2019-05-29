@@ -5,6 +5,7 @@ import { CreateStocktakingComponent } from './create-stocktaking/create-stocktak
 import { ProviderRootComponent } from './provider-root/provider-root.component';
 import { ProviderRoutingModule } from './provider-routing.module';
 import { SharedModule } from '../shared/shared.module';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { SharedModule } from '../shared/shared.module';
   imports: [
     CommonModule,
     ProviderRoutingModule,
-    SharedModule
+    SharedModule,
+    ReactiveFormsModule
   ],
   exports: [ProviderRootComponent]
 })

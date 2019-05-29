@@ -1,19 +1,53 @@
 <div class="mainContainer">
-  <form action="">
-    <h4 style="text-align: center">Crear inventario</h4>
+  
+  <form
+    [formGroup]="stockFG"
+    (ngSubmit)="onSubmit()"
+  >
+  <h4 style="text-align: center">{{title}}</h4>
+
     <mat-form-field>
-      <input matInput placeholder="Cantidad">
+      <mat-label>Seleccione el producto</mat-label>
+      <mat-select [formControl]="stockFG.get('product')">
+        <mat-option *ngFor="let product of products" [value]="product.value">
+          {{product.viewValue}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+
+    <mat-form-field>
+      <input
+        [formControl]="stockFG.get('quantity')"
+        matInput
+        type="text"
+        placeholder="Cantidad"
+      >
     </mat-form-field>
 
     <mat-form-field>
-      <input matInput placeholder="Precio">
+      <input
+        [formControl]="stockFG.get('price')"
+        matInput
+        type="text"
+        placeholder="Precio"
+      >
     </mat-form-field>
 
     <mat-form-field>
-      <input matInput placeholder="Descripción">
+      <input
+        [formControl]="stockFG.get('description')"
+        matInput
+        type="text"
+        placeholder="Descripción"
+      >
     </mat-form-field>
-    <button mat-button class="submitButton">
-      Add
+    <button
+      mat-button
+      type="submit"
+      [disabled]="!stockFG.valid"
+    >
+      {{buttonLabel}}
     </button>
   </form>
 </div>
