@@ -1,16 +1,21 @@
-<div class="main">
+<div *ngIf="!loading"  class="main">
   <h2 class="title section parallax bg1">Proveedor</h2>
   <hr>
-  <div class="container">
+  <div *ngFor="let provider of listProviders" class="container">
     <div class="row">
       <div class="col">
-          <p>ID</p>
-          <p>Username</p>
-          <p>Nombre</p>
+          <p>ID: <span class="subtitle">{{provider.id}}</span></p>
+          <p>Username: <span class="subtitle">{{provider.user_name}}</span></p>
+          <p>Nombre: <span class="subtitle">{{provider.name}}</span></p>
+          <p>Ranking: <span class="subtitle">{{provider.ranking}}</span></p>
       </div>
       <div class="col">
-
+        <div [attr.id]="provider.id" class="shadow-sm bg-white rounded"></div>
       </div>
     </div>
   </div>
+
+</div>
+<div *ngIf="loading">
+  <mat-spinner class="spinner"></mat-spinner>
 </div>

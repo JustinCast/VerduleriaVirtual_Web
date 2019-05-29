@@ -13,6 +13,7 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { LoginComponent } from './login/login.component';
 import { loginService } from './services/login.service';
 import { HttpClientModule } from '@angular/common/http';
+import { ProviderService } from './services/provider.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,7 +32,8 @@ import { HttpClientModule } from '@angular/common/http';
     ReactiveFormsModule
   ],
   providers: [
-    loginService
+    loginService,
+    ProviderService
   ],
   bootstrap: [AppComponent]
 })
