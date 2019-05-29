@@ -1,0 +1,19 @@
+<div id="purchases-report-container">
+  <div class="container text-center">
+    <h3>Consulte la compra de sus productos</h3>
+    <mat-form-field>
+      <input matInput [matDatepicker]="initialDatePicker" placeholder="Fecha inicial">
+      <mat-datepicker-toggle matSuffix [for]="initialDatePicker"></mat-datepicker-toggle>
+      <mat-datepicker #initialDatePicker></mat-datepicker>
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+      <input matInput [matDatepicker]="finalDatePicker" placeholder="Fecha final">
+      <mat-datepicker-toggle matSuffix [for]="finalDatePicker"></mat-datepicker-toggle>
+      <mat-datepicker #finalDatePicker></mat-datepicker>
+    </mat-form-field>
+    <div>
+      <button mat-stroked-button color="primary"><mat-icon>search</mat-icon></button>
+    </div>
+  </div>
+</div>
