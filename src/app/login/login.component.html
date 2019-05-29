@@ -1,4 +1,4 @@
-<div class="main">
+<div *ngIf="!loading" class="main">
   <h2 class="title">Login</h2>
   <hr>
   <form class="form" [formGroup]="loginGroup" (ngSubmit)="onSubmit()">
@@ -6,7 +6,7 @@
       <input [formControl]="loginGroup.get('username')" required matInput placeholder="Username">
     </mat-form-field>
     <mat-form-field class="full-width">
-      <input [formControl]="loginGroup.get('password')" required matInput placeholder="Password">
+      <input type="password"  [formControl]="loginGroup.get('password')" required matInput placeholder="Password">
     </mat-form-field>
     <button type="submit" class="button" mat-stroked-button color="primary" [disabled]="loginGroup.invalid">
       <mat-icon *ngIf="!loginGroup.invalid">done</mat-icon>
@@ -14,4 +14,8 @@
     </button>
   </form>
 
+</div>
+
+<div *ngIf="loading">
+  <mat-spinner class="spinner"></mat-spinner>
 </div>

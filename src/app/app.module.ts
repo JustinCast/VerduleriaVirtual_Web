@@ -11,6 +11,8 @@ import { ProviderModule } from './provider/provider.module';
 import { SharedModule } from './shared/shared.module';
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { LoginComponent } from './login/login.component';
+import { loginService } from './services/login.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -22,13 +24,16 @@ import { LoginComponent } from './login/login.component';
     AdminModule,
     ProviderModule,
     AppRoutingModule,
+    HttpClientModule,
     BrowserAnimationsModule,
     SharedModule,
     RouterModule.forRoot(ROUTES),
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [
+    loginService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

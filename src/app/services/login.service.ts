@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-
+import { env } from '../../../environment/env.js';
 
 @Injectable()
 export class loginService {
@@ -12,7 +12,7 @@ export class loginService {
    * @param config (username, password)
    */
   login(username: string, password: string): Observable<any> {
-    return this.http.get(`http://localhost:3000/login/${username}/${password}`);
+    return this.http.post(`${env.BASE_URL}login`,{username, password});
   }
 
 
