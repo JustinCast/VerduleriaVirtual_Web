@@ -42,22 +42,28 @@ export class LoginComponent implements OnInit {
     }
     // call service
     this.loading = true;
-    this.loginService.login(
-      this.loginGroup.get('username').value,
-      this.loginGroup.get('password').value).subscribe(user => {
-      if(user.length !== 0){
-        localStorage.setItem('actual_user', JSON.stringify({id: user[0].id, nombre: user[0].name}));
-        this.snackbar(`Bienvenido ${user[0].name.charAt(0).toUpperCase() + user[0].name.slice(1)}`, 'Aceptado');
-        this.loading = false;
-        // TODO: navegar al main
-      } else {
-        this.snackbar(`Información incorrecta`, 'ERROR');
-        this.loading = false;
-      }
-    }, err => {
-      this.snackbar(JSON.stringify(err), 'ERROR');
+    // If admin
+    if( this.loginGroup.get('username').value === 'admin' && this.loginGroup.get('password').value === 'admin' ) {
+      localStorage.setItem('actual_user', JSON.stringify({id: 'admin', nombre: 'admin'}));
+      this.snackbar(`Bienvenido Administrador`, 'Aceptado');
       this.loading = false;
-    });
-
+    } else { // Provider
+      this.loginService.login(
+        this.loginGroup.get('username').value,
+        this.loginGroup.get('password').value).subscribe(user => {
+        if(user.length !== 0){
+          localStorage.setItem('actual_user', JSON.stringify({id: user[0].id, nombre: user[0].name}));
+          this.snackbar(`Bienvenido ${user[0].name.charAt(0).toUpperCase() + user[0].name.slice(1)}`, 'Aceptado');
+          this.loading = false;
+          // TODO: navegar al main
+        } else {
+          this.snackbar(`Información incorrecta`, 'ERROR');
+          this.loading = false;
+        }
+      }, err => {
+        this.snackbar(JSON.stringify(err), 'ERROR');
+        this.loading = false;
+      });
+    }
   }
 }
