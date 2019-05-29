@@ -13,7 +13,7 @@ export class ProductService {
   constructor(private _http: HttpClient, private _snackBar: MatSnackBar) { }
 
   saveProduct(product: Product): void {
-    this._http.post(`${environment.SERVER_BASE_URL}`, product)
+    this._http.post(`${environment.SERVER_BASE_URL}createProduct`, product)
     .subscribe(
       () => this.openSnackBar('Producto guardado', 'Ok', 3000),
       (err: HttpErrorResponse) => this.handleError(err)

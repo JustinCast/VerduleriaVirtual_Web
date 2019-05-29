@@ -6,6 +6,8 @@ import {
 } from "angularfire2/storage";
 import { Observable } from "rxjs";
 import { finalize } from "rxjs/operators";
+import { ProductService } from "src/app/services/product.service";
+import { Product } from 'src/app/models/Product';
 
 @Component({
   selector: "app-add-product",
@@ -29,7 +31,11 @@ export class AddProductComponent implements OnInit {
   // State for dropzone CSS toggling
   isHovering: boolean;
 
-  constructor(private _fb: FormBuilder, private storage: AngularFireStorage) {
+  constructor(
+    private _fb: FormBuilder,
+    private storage: AngularFireStorage,
+    private _product: ProductService
+  ) {
     this.addProductFG = this._fb.group({
       productName: ["", Validators.required],
       photo: ["", Validators.required]
@@ -92,8 +98,9 @@ export class AddProductComponent implements OnInit {
   }
 
   onSubmit(url) {
-    
     console.log(this.addProductFG.value);
+    let product = new Product(this.addProductFG.get('productName').value, url);
+    console.log(product);
+    this._product.saveProduct(product);
   }
-
 }

@@ -1,3 +1,3 @@
 export class Product {
-  constructor(name?: string, imageURL?: string) {}
+  constructor(public productName?: string, public imageURL?: string) {}
 }
