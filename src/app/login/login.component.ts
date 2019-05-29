@@ -10,6 +10,8 @@ import {MatSnackBar} from '@angular/material/snack-bar';
 export class LoginComponent implements OnInit {
   loginGroup: FormGroup;
   loading = false;
+  show = false;
+  eye = 'eye-slash';
   constructor(
     private _fb: FormBuilder,
     public loginService: loginService,
@@ -24,7 +26,10 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
   }
-
+  // click event function toggle
+  password() {
+    this.show = !this.show;
+  }
   /**
    * Function to show snackbar
    * @param msj, action

@@ -5,9 +5,11 @@
     <mat-form-field class="full-width">
       <input [formControl]="loginGroup.get('username')" required matInput placeholder="Username">
     </mat-form-field>
-    <mat-form-field class="full-width">
-      <input type="password"  [formControl]="loginGroup.get('password')" required matInput placeholder="Password">
+    <mat-form-field class="full-width-password">
+      <input  [type]="show ? 'text' : 'password'"  [formControl]="loginGroup.get('password')" required matInput placeholder="Password">
     </mat-form-field>
+    <mat-icon class="icon" *ngIf="show" (click)="password()">visibility</mat-icon>
+    <mat-icon class="icon" *ngIf="!show" (click)="password()">visibility_off</mat-icon>
     <button type="submit" class="button" mat-stroked-button color="primary" [disabled]="loginGroup.invalid">
       <mat-icon *ngIf="!loginGroup.invalid">done</mat-icon>
       <mat-icon *ngIf="loginGroup.invalid">warning</mat-icon>
