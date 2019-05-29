@@ -15,5 +15,4 @@ export class loginService {
     return this.http.post(`${env.BASE_URL}login`,{username, password});
   }
 
-
 }
