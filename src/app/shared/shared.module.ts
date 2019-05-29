@@ -5,13 +5,15 @@ import {
   MatFormFieldModule,
   MatInputModule,
   MatButtonModule,
-  MatIconModule
+  MatIconModule,
+  MatSnackBarModule
 } from "@angular/material";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { AngularFireModule } from "angularfire2";
 import { AngularFirestoreModule } from "angularfire2/firestore";
 import { AngularFireStorageModule } from "angularfire2/storage";
 import { environment } from 'src/environments/environment';
+import { HttpClientModule } from "@angular/common/http";
 @NgModule({
   declarations: [],
   imports: [
@@ -25,7 +27,9 @@ import { environment } from 'src/environments/environment';
     ReactiveFormsModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
-    AngularFireStorageModule
+    AngularFireStorageModule,
+    HttpClientModule,
+    MatSnackBarModule
   ],
   exports: [
     MatCardModule,
@@ -37,7 +41,9 @@ import { environment } from 'src/environments/environment';
     ReactiveFormsModule,
     AngularFireModule,
     AngularFirestoreModule,
-    AngularFireStorageModule
+    AngularFireStorageModule,
+    HttpClientModule,
+    MatSnackBarModule
   ]
 })
 export class SharedModule {}

@@ -1,5 +1,5 @@
 <div id="main">
-  <form [formGroup]="addProductFG" (ngSubmit)="onSubmit()">
+  <form [formGroup]="addProductFG">
     <h1>Agregar producto</h1>
     <hr>
     <mat-form-field>
@@ -56,9 +56,8 @@
         </mat-icon>
       </button>
     </div>
-
-    <div>
-      <button [disabled]="!addProductFG.valid" color="primary" id="done-btn" mat-stroked-button><mat-icon>{{icon}}</mat-icon></button>
+    <div class="mt-2" *ngIf="downloadURL | async as url">
+      <button (click)="onSubmit(url)" [disabled]="!addProductFG.valid" color="primary" id="done-btn" mat-stroked-button><mat-icon>{{icon}}</mat-icon></button>
     </div>
   </form>
 

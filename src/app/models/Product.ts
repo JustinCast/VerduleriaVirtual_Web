@@ -1,3 +1,3 @@
 export class Product {
-  constructor(name?: String, file?: File) {}
+  constructor(name?: string, imageURL?: string) {}
 }
