@@ -1,15 +1,17 @@
-<div class="container text-center mx-auto">
-  <mat-card class="card text-center mx-auto">
-    <mat-card-title class="title">Login</mat-card-title>
-    <mat-card-content>
-      <form class="form">
-        <mat-form-field class="full-width">
-          <textarea matInput placeholder="Username"></textarea>
-        </mat-form-field>
-        <mat-form-field class="full-width">
-          <textarea matInput placeholder="Password"></textarea>
-        </mat-form-field>
-      </form>
-    </mat-card-content>
-  </mat-card>
+<div class="main">
+  <h2 class="title">Login</h2>
+  <hr>
+  <form class="form" [formGroup]="loginGroup" (ngSubmit)="onSubmit()">
+    <mat-form-field class="full-width">
+      <input [formControl]="loginGroup.get('username')" required matInput placeholder="Username">
+    </mat-form-field>
+    <mat-form-field class="full-width">
+      <input [formControl]="loginGroup.get('password')" required matInput placeholder="Password">
+    </mat-form-field>
+    <button type="submit" class="button" mat-stroked-button color="primary" [disabled]="loginGroup.invalid">
+      <mat-icon *ngIf="!loginGroup.invalid">done</mat-icon>
+      <mat-icon *ngIf="loginGroup.invalid">warning</mat-icon>
+    </button>
+  </form>
+
 </div>

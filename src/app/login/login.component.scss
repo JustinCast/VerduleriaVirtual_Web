@@ -1,24 +1,54 @@
 @import '../ui-utils/variables.scss';
-.container{
-  margin-top: 15%;
-  display: flex;
-  justify-content: center;
-  flex-direction: row;
 
+@media screen and(min-width: 601px) {
+  .full-width {
+    width: 80%;
+  }
+  .main{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    height: 100%;
+    width: 30%;
+    margin: auto;
+  }
+  .button{
+    width: 30%;
+    margin-left: 3%;
+    margin-top: 2%;
+  }
+
+}
+@media screen and(max-width: 700px) {
+  .full-width {
+    width: 60%;
+  }
+  .main{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    margin: auto;
+
+  }
+  .button{
+    width: 40%;
+    margin-left: 3%;
+    margin-top: 2%;
+  }
 }
 
 .title{
-  color: $primary-text-color
+  color: $primary-color;
+  text-align: center;
 }
-.card{
-  width: 400px;
-}
+
 .form {
   min-width: 150px;
   max-width: 500px;
   width: 100%;
+  text-align: center;
 }
 
-.full-width {
-  width: 100%;
-}
+
