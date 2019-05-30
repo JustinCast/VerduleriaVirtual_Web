@@ -8,7 +8,7 @@ const ROUTES: Routes = [
   { 
     path: "admin", component: AdminRootComponent,
     children: [
-      { path: 'add-product', component: AddProductComponent}
+      { path: 'add-product', component: AddProductComponent},
     ]
   }
 ];

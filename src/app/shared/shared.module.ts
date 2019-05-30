@@ -8,7 +8,10 @@ import {
   MatIconModule,
   MatSnackBarModule,
   MatDatepickerModule,
-  MatNativeDateModule
+  MatNativeDateModule,
+  MatDialogModule,
+  MatSelectModule,
+
 } from "@angular/material";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { AngularFireModule } from "angularfire2";
@@ -33,7 +36,10 @@ import { HttpClientModule } from "@angular/common/http";
     HttpClientModule,
     MatSnackBarModule,
     MatDatepickerModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    MatDialogModule,
+    FormsModule,
+    MatSelectModule
   ],
   exports: [
     MatCardModule,
@@ -49,7 +55,9 @@ import { HttpClientModule } from "@angular/common/http";
     HttpClientModule,
     MatSnackBarModule,
     MatDatepickerModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    MatDialogModule,
+    MatSelectModule
   ]
 })
 export class SharedModule {}

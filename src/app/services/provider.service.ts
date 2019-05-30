@@ -9,7 +9,10 @@ import { PurchaseReport } from "../models/PurchaseReport";
   providedIn: "root"
 })
 export class ProviderService {
+  action:true;
+  
   constructor(private _http: HttpClient, private _snackBar: MatSnackBar) {}
+  
 
   getPurchasesReport(id_provider: number, initial_date: string, final_date: string): Observable<Array<PurchaseReport>> {
     return this._http.get<Array<PurchaseReport>>(
