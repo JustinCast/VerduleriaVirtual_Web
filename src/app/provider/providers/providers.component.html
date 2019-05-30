@@ -1,7 +1,7 @@
 <div *ngIf="!loading"  class="main">
   <h2 class="title section parallax bg1">Proveedor</h2>
   <hr>
-  <div *ngFor="let provider of listProviders" class="container">
+  <div *ngFor="let provider of listProviders"  class="container">
     <div class="row">
       <div class="col">
           <p>ID: <span class="subtitle">{{provider.id}}</span></p>
@@ -10,7 +10,9 @@
           <p>Ranking: <span class="subtitle">{{provider.ranking}}</span></p>
       </div>
       <div class="col">
-        <div [attr.id]="provider.id" class="shadow-sm bg-white rounded"></div>
+        <p>Localización:</p>
+        <p>Latitude: <span class="subtitle">{{provider.lat}}</span></p>
+        <p>Longitud: <span class="subtitle">{{provider.lon}}</span></p>
       </div>
     </div>
   </div>
