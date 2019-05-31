@@ -1,7 +1,65 @@
-<mat-card>
-  <form>
+<div id="main">
+  <form [formGroup]="addProductFG">
+    <h1>Agregar producto</h1>
+    <hr>
     <mat-form-field>
-      <input matInput placeholder="Nombre" type="text">
+      <input [formControl]="addProductFG.get('productName')" matInput placeholder="Nombre" type="text">
     </mat-form-field>
+    <hr>
+    <div class="dropzone" 
+      dropZone
+      (hovered)="toggleHover($event)"
+      (dropped)="startUpload($event)"
+      [class.hovering]="isHovering">
+  
+  
+  
+      <h3>Seleccione o arrastre el archivo</h3>
+  
+      <div class="file">
+        <label class="file-label">
+  
+  
+        <input class="file-input" [formControl]="addProductFG.get('photo')" type="file" (change)="startUpload($event.target.files)">
+  
+  
+          <span class="file-cta">
+            <span class="file-icon">
+              <i class="fa fa-upload"></i>
+            </span>
+          </span>
+        </label>
+      </div>
+    </div>
+    <div *ngIf="percentage | async as pct">
+  
+      <progress class="progress is-info" 
+                [value]="pct" 
+                max="100">        
+      </progress>
+    
+      {{ pct | number }}%
+    
+    </div>
+    <div id="controls-container" *ngIf="snapshot | async as snap">
+      <button mat-raised-button color="secondary" (click)="task.pause()" [disabled]="!isActive(snap)">
+        <mat-icon>pause</mat-icon>
+      </button>
+      <button mat-raised-button color="warn" (click)="task.cancel()" [disabled]="!isActive(snap)">
+        <mat-icon>
+          clear
+        </mat-icon>
+      </button>
+      <button mat-raised-button color="primary" (click)="task.resume()" [disabled]="!(snap?.state === 'paused')">
+        <mat-icon>
+          play_arrow
+        </mat-icon>
+      </button>
+    </div>
+    <div class="mt-2" *ngIf="downloadURL | async as url">
+      <button (click)="onSubmit(url)" [disabled]="!addProductFG.valid" color="primary" id="done-btn" mat-stroked-button><mat-icon>{{icon}}</mat-icon></button>
+    </div>
   </form>
-</mat-card>
+
+  
+</div>

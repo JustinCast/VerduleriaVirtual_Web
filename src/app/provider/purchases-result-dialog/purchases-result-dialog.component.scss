@@ -1,0 +1,22 @@
+@import '../../ui-utils/_variables';
+ul{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 90%;
+  list-style-type: none;
+  padding-top: 3%;
+}
+li{
+  width: 95%;
+  margin: 2%;
+  border: 0.5px dashed gray;
+  border-radius: 10px;
+  padding: 2%;
+}
+h3 {
+  color: $secondary-text-color
+}
+h4{
+  color: $primary-text-color
+}

@@ -8,7 +8,19 @@ import {
   MatButtonModule,
   MatProgressSpinnerModule,
   MatSnackBarModule,
-  MatCheckboxModule } from "@angular/material";
+  MatCheckboxModule,
+  MatDatepickerModule,
+  MatNativeDateModule,
+  MatDialogModule,
+  MatSelectModule,
+
+} from "@angular/material";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { AngularFireModule } from 'angularfire2';
+import { AngularFirestoreModule } from "angularfire2/firestore";
+import { AngularFireStorageModule } from "angularfire2/storage";
+import { environment } from 'src/environments/environment';
+import { HttpClientModule } from "@angular/common/http";
 @NgModule({
   declarations: [],
   imports: [
@@ -19,18 +31,38 @@ import {
     MatIconModule,
     MatButtonModule,
     MatProgressSpinnerModule,
+    MatCheckboxModule,
+    ReactiveFormsModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFirestoreModule,
+    AngularFireStorageModule,
+    HttpClientModule,
     MatSnackBarModule,
-    MatCheckboxModule
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatDialogModule,
+    FormsModule,
+    MatSelectModule
   ],
   exports: [
     MatCardModule,
     MatFormFieldModule,
     MatInputModule,
-    MatIconModule,
-    MatButtonModule,
     MatProgressSpinnerModule,
+    MatCheckboxModule,
+    MatButtonModule,
+    MatIconModule,
+    FormsModule,
+    ReactiveFormsModule,
+    AngularFireModule,
+    AngularFirestoreModule,
+    AngularFireStorageModule,
+    HttpClientModule,
     MatSnackBarModule,
-    MatCheckboxModule
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatDialogModule,
+    MatSelectModule
   ]
 })
-export class SharedModule { }
+export class SharedModule {}

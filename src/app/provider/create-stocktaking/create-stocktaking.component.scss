@@ -1,0 +1,18 @@
+.mainContainer{
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  height: 100%;
+}
+
+form{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: 40%;
+}
+
+.submitButton{
+  width: 20%;
+  margin: 0.5% auto 0.2% auto;
+}

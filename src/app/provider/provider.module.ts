@@ -5,9 +5,20 @@ import { ProviderRoutingModule } from './provider-routing.module';
 import { ProvidersComponent } from './providers/providers.component';
 import { SharedModule } from '../shared/shared.module';
 import { AgmCoreModule } from '@agm/core';
+import { StocktakingComponent } from "./stocktaking/stocktaking.component";
+import { CreateStocktakingComponent } from "./create-stocktaking/create-stocktaking.component";
+import { PurchasesReportComponent } from "./purchases-report/purchases-report.component";
+import { PurchasesResultDialogComponent } from "./purchases-result-dialog/purchases-result-dialog.component";
 
 @NgModule({
-  declarations: [ProviderRootComponent, ProviderRootComponent, ProvidersComponent],
+  declarations: [
+    ProviderRootComponent,
+    ProvidersComponent,
+    PurchasesReportComponent,
+    PurchasesResultDialogComponent,
+    StocktakingComponent,
+    CreateStocktakingComponent
+  ],
   imports: [
     CommonModule,
     ProviderRoutingModule,
@@ -16,6 +27,7 @@ import { AgmCoreModule } from '@agm/core';
       apiKey: 'AIzaSyBHGUUQv1uL0NOQ3C1vB8LfbOQEFNlrQHg'
     })
   ],
+  entryComponents: [PurchasesResultDialogComponent],
   exports: [ProviderRootComponent]
 })
-export class ProviderModule { }
+export class ProviderModule {}

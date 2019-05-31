@@ -1,0 +1,11 @@
+<div class="container">
+  <ul>
+    <h3><i>Compras desde {{data.initialDate}} hasta {{data.finalDate}}</i></h3>
+    <li *ngFor="let p of data.purchases">
+      <h4>{{p.product_name}}</h4>
+      <hr>
+      <p><strong>Cantidad: </strong>{{p._total_product}}</p>
+      <p><strong>Fecha: </strong>{{p._date | date : 'full'}}</p>
+    </li>
+  </ul>
+</div>

@@ -1,7 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
-import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ROUTES } from "./router";
@@ -14,6 +12,7 @@ import { LoginComponent } from './login/login.component';
 import { loginService } from './services/login.service';
 import { HttpClientModule } from '@angular/common/http';
 import { ProviderService } from './services/provider.service';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,13 +22,11 @@ import { ProviderService } from './services/provider.service';
     BrowserModule,
     AdminModule,
     ProviderModule,
-    AppRoutingModule,
+    //AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
     SharedModule,
-    RouterModule.forRoot(ROUTES),
-    FormsModule,
-    ReactiveFormsModule
+    RouterModule.forRoot(ROUTES)
   ],
   providers: [
     loginService,
