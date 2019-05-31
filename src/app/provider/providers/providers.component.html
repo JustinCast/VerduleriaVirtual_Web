@@ -8,15 +8,21 @@
           <p>Username: <span class="subtitle">{{provider.user_name}}</span></p>
           <p>Nombre: <span class="subtitle">{{provider.name}}</span></p>
           <p>Ranking: <span class="subtitle">{{provider.ranking}}</span></p>
+          <mat-icon *ngIf="actualUser.id === 'admin'" class="icon delete">delete</mat-icon>
+          <mat-icon *ngIf="actualUser.id !== 'admin'" class="icon edit">edit</mat-icon>
+          <mat-icon *ngIf="actualUser.id === 'admin'" class="icon">block</mat-icon>
       </div>
       <div class="col">
         <agm-map class="map" [latitude]="+provider.lat" [longitude]="+provider.lon" [zoom]="15">
             <agm-marker [latitude]="+provider.lat" [longitude]="+provider.lon"></agm-marker>
         </agm-map>
+
       </div>
     </div>
   </div>
-
+  <button class="custom-button" mat-fab color="primary" *ngIf="actualUser.id === 'admin'">
+    <span style="font-size: 25px;">+</span>
+  </button>
 </div>
 <div *ngIf="loading">
   <mat-spinner class="spinner"></mat-spinner>

@@ -10,10 +10,10 @@ export class ProviderService {
   constructor(private http: HttpClient) { }
   /**
    * Function to get Providers
-   * @param {}
+   * @param {id}
    * return list providers{id,username,name,lat,lon}
    */
-  getProviders(): Observable<any> {
-    return this.http.get(`${environment.SERVER_BASE_URL}getProviders`);
+  getProviders(id): Observable<any> {
+    return this.http.get(`${environment.SERVER_BASE_URL}getProviders/${id}`);
   }
 }
