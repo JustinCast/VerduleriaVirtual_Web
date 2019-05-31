@@ -9,6 +9,7 @@ import { StocktakingComponent } from "./stocktaking/stocktaking.component";
 import { CreateStocktakingComponent } from "./create-stocktaking/create-stocktaking.component";
 import { PurchasesReportComponent } from "./purchases-report/purchases-report.component";
 import { PurchasesResultDialogComponent } from "./purchases-result-dialog/purchases-result-dialog.component";
+import { CreateModifyProviderComponent } from './create-modify-provider/create-modify-provider.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { PurchasesResultDialogComponent } from "./purchases-result-dialog/purcha
     PurchasesReportComponent,
     PurchasesResultDialogComponent,
     StocktakingComponent,
-    CreateStocktakingComponent
+    CreateStocktakingComponent,
+    CreateModifyProviderComponent
   ],
   imports: [
     CommonModule,
