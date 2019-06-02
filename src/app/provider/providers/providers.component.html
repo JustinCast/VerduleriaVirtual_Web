@@ -9,7 +9,7 @@
           <p>Nombre: <span class="subtitle">{{provider.name}}</span></p>
           <p>Ranking: <span class="subtitle">{{provider.ranking}}</span></p>
           <mat-icon *ngIf="actualUser.id === 'admin'" class="icon delete">delete</mat-icon>
-          <mat-icon *ngIf="actualUser.id !== 'admin'" class="icon edit">edit</mat-icon>
+          <mat-icon *ngIf="actualUser.id !== 'admin'" class="icon edit" (click)="openDialog()">edit</mat-icon>
           <mat-icon *ngIf="actualUser.id === 'admin'" class="icon">block</mat-icon>
       </div>
       <div class="col">
@@ -20,7 +20,7 @@
       </div>
     </div>
   </div>
-  <button class="custom-button" mat-fab color="primary" *ngIf="actualUser.id === 'admin'">
+  <button class="custom-button" *ngIf="actualUser.id === 'admin'" mat-fab color="primary" (click)="openDialog()">
     <span style="font-size: 25px;">+</span>
   </button>
 </div>

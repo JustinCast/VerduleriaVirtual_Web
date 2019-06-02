@@ -4,6 +4,8 @@ import { CreateStocktakingComponent } from '../provider/create-stocktaking/creat
 import { ProviderService } from './provider.service';
 import { PurchaseReport } from '../models/PurchaseReport';
 import { PurchasesResultDialogComponent } from '../provider/purchases-result-dialog/purchases-result-dialog.component';
+import { CreateModifyProviderComponent } from '../provider/create-modify-provider/create-modify-provider.component';
+import { Provider } from '../models/Provider';
 
 @Injectable({
   providedIn: 'root'
@@ -33,11 +35,11 @@ export class DialogService {
     return dialogRef.afterClosed();
   }
 
-  public openCreateProviders(provider) {
-    let dialogRef: MatDialogRef<PurchasesResultDialogComponent>;
-    dialogRef = this.dialog.open(PurchasesResultDialogComponent, {
-      width: "70%",
-      height: "80%",
+  public openCreateProviders(provider: Provider) {
+    let dialogRef: MatDialogRef<CreateModifyProviderComponent>;
+    dialogRef = this.dialog.open(CreateModifyProviderComponent, {
+      width: "90%",
+      height: "90%",
       data: {provider}
     });
     return dialogRef.afterClosed();

@@ -1,7 +1,7 @@
 <div *ngIf="!loading" class="main ">
   <h2 class="title container">Login</h2>
   <hr>
-  <div class="text-center text-center">
+  <div class="text-center">
     <form class="form" [formGroup]="loginGroup" (ngSubmit)="onSubmit()">
       <mat-form-field class="full-width">
         <input [formControl]="loginGroup.get('username')" required matInput placeholder="Username">

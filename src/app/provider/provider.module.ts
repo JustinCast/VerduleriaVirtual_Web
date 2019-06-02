@@ -17,6 +17,7 @@ import { CreateModifyProviderComponent } from './create-modify-provider/create-m
     ProvidersComponent,
     PurchasesReportComponent,
     PurchasesResultDialogComponent,
+    CreateModifyProviderComponent,
     StocktakingComponent,
     CreateStocktakingComponent,
     CreateModifyProviderComponent
@@ -29,7 +30,9 @@ import { CreateModifyProviderComponent } from './create-modify-provider/create-m
       apiKey: 'AIzaSyBHGUUQv1uL0NOQ3C1vB8LfbOQEFNlrQHg'
     })
   ],
-  entryComponents: [PurchasesResultDialogComponent],
+  entryComponents: [
+    PurchasesResultDialogComponent,
+    CreateModifyProviderComponent],
   exports: [ProviderRootComponent]
 })
 export class ProviderModule {}

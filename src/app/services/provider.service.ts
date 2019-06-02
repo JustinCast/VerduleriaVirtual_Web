@@ -42,4 +42,21 @@ export class ProviderService {
       );
     }
   }
+  /**
+   * Function to checkPassword provider
+   * @param {id,password}
+   * return id
+   */
+  checkPassword(id: number , password: string): Observable<any> {
+    return this._http.post(`${environment.SERVER_BASE_URL}checkPassword`, { id, password});
+  }
+  /**
+     * Function to create or update provider
+     * @param provider
+     * confirmation
+     */
+  updateOrCreateProvider(provider): Observable<any>{
+    return this._http.post(`${environment.SERVER_BASE_URL}updateOrCreateProvider`, {provider});
+  }
+
 }
