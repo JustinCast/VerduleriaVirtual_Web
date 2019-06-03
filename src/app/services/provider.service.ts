@@ -19,16 +19,14 @@ export class ProviderService {
     private http: HttpClient
   ) { }
 
-  getStocks (productId){
-    //this.stockList = [{ id: 1, productName: 'tomate', description: 'Este productos es excelente', price: 2000, quantity: 20 }, { id: 2, productName: 'lechuga', description: 'Este productos es excelente', price: 2000, quantity: 20 }, { id: 3, productName: 'lechuga', description: 'Este productos es excelente', price: 2000, quantity: 20 }, { id: 4, productName: 'lechuga', description: 'Este productos es excelente', price: 2000, quantity: 20 }]
-  
+  getStocks(productId) {
     this.http.get(`${environment.SERVER_BASE_URL}getStockOfProvider/${productId}`).subscribe(
       data => {
         this.stockList = data;
         console.log(data);
       }
     )
-  
+
   }
 
   getProducts() {
@@ -41,10 +39,41 @@ export class ProviderService {
   }
 
   addStock(stock) {
+    this.http.post(`${environment.SERVER_BASE_URL}addStock`, {
+      description:stock.description ,
+      price: stock.price,
+      count: stock.count,
+      id_product: stock.id_product,
+      id_provider: stock.id_provider
+    }).subscribe(
+      data => {
+        this.productsList = data;
+        console.log(data);
+      }
+    )
+  }
+
+  modifyStock(stock) {
+    this.http.post(`${environment.SERVER_BASE_URL}modifyStock`, {
+      description:stock.description ,
+      price: stock.price,
+      count: stock.count,
+      id_commodity: stock.id_commodity
+    }).subscribe(
+      data => {
+        this.productsList = data;
+        console.log(data);
+      }
+    )
+  }
+
+  aboutStock(stock) {
     this.action ? (
       console.log("crear inventario "),
+      this.addStock(stock),
       this.openSnackBar("Creado exitosamente")
     ) : (
+        this.modifyStock(stock),
         console.log("Modificar inventario" + this.stockToModify.id)
       )
     console.log(stock)

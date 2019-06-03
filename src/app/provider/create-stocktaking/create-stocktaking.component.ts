@@ -47,10 +47,10 @@ export class CreateStocktakingComponent implements OnInit {
     let currentStock = {
       description: this.stockFG.controls["description"].value,
       price: this.stockFG.controls["price"].value,
-      quantity: this.stockFG.controls["count"].value,
-      product: this.product
+      count: this.stockFG.controls["count"].value,
+      //necesito el id del producto, del proveedor y del commodity o stock actual
     }
-    this._providerServices.addStock(currentStock);
+    this._providerServices.aboutStock(currentStock);
    
   }
 
