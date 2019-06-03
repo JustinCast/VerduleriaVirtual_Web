@@ -8,17 +8,17 @@
 
     <mat-form-field>
       <mat-label>Seleccione el producto</mat-label>
-      <mat-select [formControl]="stockFG.get('product')">
-        <mat-option *ngFor="let product of products" [value]="product.value">
-          {{product.viewValue}}
+      <mat-select [(ngModel)]="product" [ngModelOptions]="{standalone: true}"
+      >
+        <mat-option *ngFor="let product of _providerServices.productsList" [value]="product.productname" >
+          {{product.productname}}
         </mat-option>
       </mat-select>
     </mat-form-field>
 
-
     <mat-form-field>
       <input
-        [formControl]="stockFG.get('quantity')"
+        [formControl]="stockFG.get('count')"
         matInput
         type="text"
         placeholder="Cantidad"
@@ -43,6 +43,7 @@
       >
     </mat-form-field>
     <button
+      disabled
       mat-button
       type="submit"
       [disabled]="!stockFG.valid"
