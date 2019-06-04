@@ -13,6 +13,7 @@ import {
   MatNativeDateModule,
   MatDialogModule,
   MatSelectModule,
+  MatSlideToggleModule
 
 } from "@angular/material";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
@@ -42,7 +43,8 @@ import { HttpClientModule } from "@angular/common/http";
     MatNativeDateModule,
     MatDialogModule,
     FormsModule,
-    MatSelectModule
+    MatSelectModule,
+    MatSlideToggleModule
   ],
   exports: [
     MatCardModule,
@@ -62,7 +64,8 @@ import { HttpClientModule } from "@angular/common/http";
     MatDatepickerModule,
     MatNativeDateModule,
     MatDialogModule,
-    MatSelectModule
+    MatSelectModule,
+    MatSlideToggleModule
   ]
 })
 export class SharedModule {}

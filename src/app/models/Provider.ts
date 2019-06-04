@@ -5,6 +5,7 @@ export class Provider {
     public name?: string,
     public ranking?: number,
     public lat?: string,
-    public lon?: string
+    public lon?: string,
+    public block?: boolean
   ) {}
 }

@@ -62,7 +62,7 @@ export class LoginComponent implements OnInit {
           this.loading = false;
           // TODO: navegar al main
         } else {
-          this.snackbar(`Información incorrecta`, 'ERROR');
+          this.snackbar(`Información incorrecta o esta bloqueado`, 'ERROR');
           this.loading = false;
         }
       }, err => {

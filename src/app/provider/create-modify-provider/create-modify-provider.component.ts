@@ -29,7 +29,7 @@ export class CreateModifyProviderComponent implements OnInit {
     this.providerGroup = this._fb.group({
       user_name: [this.actualProvider.user_name === undefined ? '' : this.actualProvider.user_name, Validators.required],
       name: [this.actualProvider.name === undefined ? '' : this.actualProvider.name, Validators.required],
-      password: ['', Validators.required],
+      password: ['', this.actualProvider.id === undefined ? Validators.required : Validators.nullValidator],
       newPassword: ['', this.actualProvider.id === undefined ? Validators.required : Validators.nullValidator]
     });
 
@@ -54,7 +54,7 @@ export class CreateModifyProviderComponent implements OnInit {
   fillDefaultProvider() {
     this.data.provider === null ? this.actualProvider = new Provider() : this.actualProvider = this.data.provider;
     this.data.provider === null ? this.title = 'Crear un Proveedor' : this.title = 'Actualizar Datos';
-    this.data.provider !== null ? this.setActualLocation(+this.actualProvider.lat, +this.actualProvider.lon) : null;
+    this.data.provider !== null ? this.setActualLocation(+this.data.provider.lat, +this.data.provider.lon) : null;
   }
 
   ngOnInit() {
@@ -69,18 +69,18 @@ export class CreateModifyProviderComponent implements OnInit {
     });
   }
   // Check password
-  checkPassword(){
+  checkPassword() {
     this._providerService.checkPassword( this.actualProvider.id, this.providerGroup.get('password').value)
     .subscribe( res => {
-      if(res.length > 0){
+      if(res.length > 0) {
         this.showNewPassword = true;
         this.icon = 'check';
-        this.snackbar('Contraseña Correcta', 'Aceptado')
+        this.snackbar('Contraseña Correcta', 'Aceptado');
       } else {
         this.snackbar('Contraseña Incorrecta', 'ERROR');
         this.showNewPassword = false;
       }
-    }, err => {this.snackbar(err, 'ERROR'); this.showNewPassword = false;});
+    }, err => {this.snackbar(err, 'ERROR'); this.showNewPassword = false; });
   }
 
   onNoClick(): void {
@@ -97,8 +97,8 @@ export class CreateModifyProviderComponent implements OnInit {
    */
   validateCreateProvider() {
     if(this.providerGroup.get('user_name').value === ''
-      && this.providerGroup.get('name').value === ''
-      && this.providerGroup.get('password').value === ''){
+      || this.providerGroup.get('name').value === ''
+      || this.providerGroup.get('password').value === ''){
         return null;
       } else {
         return {
@@ -116,17 +116,24 @@ export class CreateModifyProviderComponent implements OnInit {
    * @param {}
    * return provider{user_name, password,name, lat, lon, create}
    */
-  validateUpdateProvider(){
-    let provider = {
-      id: this.actualProvider.id,
-      user_name : this.providerGroup.get('user_name').value,
-      name: this.providerGroup.get('name').value,
-      password: this.providerGroup.get('password').value === '' ? null : this.providerGroup.get('newPassword').value,
-      lat: this.lat,
-      lon: this.lon,
-      create: false
+  validateUpdateProvider() {
+    if (this.providerGroup.get('user_name').value === ''
+      || this.providerGroup.get('name').value === ''
+      || (this.providerGroup.get('password').value) !== '' &&
+      this.providerGroup.get('newPassword').value === '') {
+        return null;
+    } else {
+      let provider = {
+        id: this.actualProvider.id,
+        user_name : this.providerGroup.get('user_name').value,
+        name: this.providerGroup.get('name').value,
+        password: this.providerGroup.get('password').value === '' ? null : this.providerGroup.get('newPassword').value,
+        lat: this.lat,
+        lon: this.lon,
+        create: false
+      }
+      return provider;
     }
-    return provider;
   }
   onSubmit() {
     let provider;
@@ -137,10 +144,11 @@ export class CreateModifyProviderComponent implements OnInit {
     }
 
     if (provider === null){ // Error
-      this.snackbar('Faltan datos por rellenar','ERROR');
+      this.snackbar('Faltan datos por rellenar', 'ERROR');
     } else {
       this._providerService.updateOrCreateProvider(provider).subscribe(res => {
         this.snackbar('Se realizo correctamente', 'Aceptado');
+        console.log(res);
         this.dialogRef.close();
       }, err => this.snackbar(err, 'ERROR'))
     }

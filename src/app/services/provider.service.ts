@@ -27,6 +27,14 @@ export class ProviderService {
       `${environment.SERVER_BASE_URL}getPurchasesByProvider/${id_provider}/${initial_date}/${final_date}`
     );
   }
+/**
+   * Function to delete provider
+   * @param id
+   * confirmation
+   */
+  deleteProvider(id): Observable<any> {
+    return this._http.delete(`${environment.SERVER_BASE_URL}deleteProvider/${id}`);
+  }
 
   handleError(err: HttpErrorResponse) {
     if (err.error instanceof Error) {
@@ -58,5 +66,12 @@ export class ProviderService {
   updateOrCreateProvider(provider): Observable<any>{
     return this._http.post(`${environment.SERVER_BASE_URL}updateOrCreateProvider`, {provider});
   }
-
+  /**
+   * Function to block provider
+   * @param id, block
+   * confirmation
+   */
+  blockProvider(block,id): Observable<any> {
+    return this._http.post(`${environment.SERVER_BASE_URL}blockProvider`, {block, id});
+  }
 }
