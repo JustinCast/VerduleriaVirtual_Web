@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { MatDialog, MatDialogRef } from '@angular/material';
+import { MatDialog } from '@angular/material';
 import { CreateStocktakingComponent } from '../provider/create-stocktaking/create-stocktaking.component';
 
 @Injectable({
@@ -10,8 +10,7 @@ export class DialogService {
   constructor(private dialog: MatDialog) { }
 
   public openCreateStock() {
-    let dialogRef: MatDialogRef<CreateStocktakingComponent>;
-    dialogRef = this.dialog.open(CreateStocktakingComponent, {
+    let dialogRef = this.dialog.open(CreateStocktakingComponent, {
       width: "40%",
       height: "45%",
       panelClass: "dialog"

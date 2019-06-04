@@ -6,11 +6,13 @@
   >
   <h4 style="text-align: center">{{title}}</h4>
 
-    <mat-form-field>
+    <p *ngIf="this._providerServices.action == false" style="text-align: center; font-size: 25px">{{this.stock.productname}}</p>
+
+    <mat-form-field *ngIf="this._providerServices.action == true">
       <mat-label>Seleccione el producto</mat-label>
       <mat-select [(ngModel)]="product" [ngModelOptions]="{standalone: true}"
       >
-        <mat-option *ngFor="let product of _providerServices.productsList" [value]="product.productname" >
+        <mat-option *ngFor="let product of _providerServices.productsList" [value]="product" >
           {{product.productname}}
         </mat-option>
       </mat-select>
@@ -20,7 +22,7 @@
       <input
         [formControl]="stockFG.get('count')"
         matInput
-        type="text"
+        type="number"
         placeholder="Cantidad"
       >
     </mat-form-field>
@@ -29,7 +31,7 @@
       <input
         [formControl]="stockFG.get('price')"
         matInput
-        type="text"
+        type="number"
         placeholder="Precio"
       >
     </mat-form-field>

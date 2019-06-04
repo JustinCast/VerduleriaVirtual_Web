@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
-import { MatSnackBar } from '@angular/material';
+import { MatSnackBar, MatDialog } from '@angular/material';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
 import { environment } from '../../environments/env';
+import { DialogService } from './dialog.service';
 
 @Injectable({
   providedIn: 'root'
@@ -16,17 +16,22 @@ export class ProviderService {
 
   constructor(
     private _snackBar: MatSnackBar,
-    private http: HttpClient
+    private http: HttpClient,
+    private dialog: MatDialog
   ) { }
+
+
+  public closeDialogs(){
+    this.dialog.closeAll();
+  }
 
   getStocks(productId) {
     this.http.get(`${environment.SERVER_BASE_URL}getStockOfProvider/${productId}`).subscribe(
       data => {
-        this.stockList = data;
+        this.stockList = data; console.log(data)
         console.log(data);
       }
     )
-
   }
 
   getProducts() {
@@ -40,41 +45,38 @@ export class ProviderService {
 
   addStock(stock) {
     this.http.post(`${environment.SERVER_BASE_URL}addStock`, {
-      description:stock.description ,
+      description: stock.description,
       price: stock.price,
       count: stock.count,
-      id_product: stock.id_product,
-      id_provider: stock.id_provider
+      id_product: stock.idProduct,
+      id_provider: stock.idProvider
     }).subscribe(
-      data => {
-        this.productsList = data;
-        console.log(data);
+      () => {
+        this.closeDialogs(),
+        this.openSnackBar("Creado exitosamente");
       }
     )
   }
 
   modifyStock(stock) {
     this.http.post(`${environment.SERVER_BASE_URL}modifyStock`, {
-      description:stock.description ,
+      description: stock.description,
       price: stock.price,
       count: stock.count,
-      id_commodity: stock.id_commodity
+      id_commodity: stock.idCommodity
     }).subscribe(
-      data => {
-        this.productsList = data;
-        console.log(data);
+      () => {
+        this.closeDialogs(),
+        this.openSnackBar("Modificado exitosamente")
       }
     )
   }
 
   aboutStock(stock) {
     this.action ? (
-      console.log("crear inventario "),
-      this.addStock(stock),
-      this.openSnackBar("Creado exitosamente")
+      this.addStock(stock)
     ) : (
-        this.modifyStock(stock),
-        console.log("Modificar inventario" + this.stockToModify.id)
+        this.modifyStock(stock)
       )
     console.log(stock)
   }

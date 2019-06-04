@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ProviderService } from 'src/app/services/provider.service';
-import { MatSnackBar } from '@angular/material';
 
 @Component({
   selector: 'app-create-stocktaking',
@@ -14,6 +13,7 @@ export class CreateStocktakingComponent implements OnInit {
   title: any;
   buttonLabel: any;
   product: any;
+  currentStock: any;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -37,22 +37,31 @@ export class CreateStocktakingComponent implements OnInit {
       this.stockFG.controls["count"].setValue(this.stock.count),
       this.stockFG.controls["price"].setValue(this.stock.price),
       this.stockFG.controls["description"].setValue(this.stock.description),
-
       !this._providerServices.action ? this.product = this.stock.productname : null
     ) : null
 
   }
 
   onSubmit() {
+
     let currentStock = {
       description: this.stockFG.controls["description"].value,
       price: this.stockFG.controls["price"].value,
       count: this.stockFG.controls["count"].value,
-      //necesito el id del producto, del proveedor y del commodity o stock actual
-    }
+      idProvider: 1,
+      idProduct: undefined,
+      idCommodity: undefined
+    };
+
+    this._providerServices.action ? currentStock.idProduct = this.product.product_id
+      : currentStock.idProduct = this._providerServices.stockToModify.product_id;
+
+    this._providerServices.action ? currentStock.idCommodity = undefined
+      : currentStock.idCommodity = this._providerServices.stockToModify.commodity_id;
+
     this._providerServices.aboutStock(currentStock);
-   
+
   }
 
-  
+
 }

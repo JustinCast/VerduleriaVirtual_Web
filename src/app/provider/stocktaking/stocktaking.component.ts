@@ -23,5 +23,7 @@ export class StocktakingComponent implements OnInit {
     stock ? this._providerService.stockToModify = stock : this._providerService.stockToModify = undefined;
     this._providerService.action = action;
     this._dialogService.openCreateStock();
+
+    console.log("Este es el original"+JSON.stringify(stock))
   }
 }
