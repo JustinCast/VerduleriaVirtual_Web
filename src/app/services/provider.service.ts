@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { MatSnackBar, MatDialog } from '@angular/material';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../environments/env';
-import { DialogService } from './dialog.service';
 
 @Injectable({
   providedIn: 'root'
@@ -20,8 +19,7 @@ export class ProviderService {
     private dialog: MatDialog
   ) { }
 
-
-  public closeDialogs(){
+  public closeDialogs() {
     this.dialog.closeAll();
   }
 
@@ -53,7 +51,7 @@ export class ProviderService {
     }).subscribe(
       () => {
         this.closeDialogs(),
-        this.openSnackBar("Creado exitosamente");
+          this.openSnackBar("Creado exitosamente");
       }
     )
   }
@@ -67,7 +65,7 @@ export class ProviderService {
     }).subscribe(
       () => {
         this.closeDialogs(),
-        this.openSnackBar("Modificado exitosamente")
+          this.openSnackBar("Modificado exitosamente")
       }
     )
   }
@@ -81,14 +79,34 @@ export class ProviderService {
     console.log(stock)
   }
 
-  deleteStock() {
-    console.log("borrar inventario");
-    this.openSnackBar("Borrado exitosamente");
+  deleteStock(commodity_id,provider_id) {
+    this.http.get(`${environment.SERVER_BASE_URL}deleteCommodity/${commodity_id}/${provider_id}`).subscribe(
+      data => {
+        console.log("data"+JSON.stringify(data)),
+        data[0].delete_commodity ? this.openSnackBar("Eliminado exitosamente") :  this.openSnackBar("No se puede eliminar el inventario");
+      }
+    )
+
   }
 
-  lockedStock() {
-    console.log("bloquear inventario");
-    this.openSnackBar("Bloqueado exitosamente");
+  lockedStock(commodity_id) {
+    let lock = true;
+    this.http.get(`${environment.SERVER_BASE_URL}lockedStock/${commodity_id}/${lock}`).subscribe(
+      data => {
+        console.log(data);
+        this.openSnackBar("Bloqueado exitosamente");
+      }
+    )
+  }
+
+  unlockedStock(commodity_id) {
+    let lock = false;
+    this.http.get(`${environment.SERVER_BASE_URL}lockedStock/${commodity_id}/${lock}`).subscribe(
+      data => {
+        console.log(data);
+        this.openSnackBar("Desbloqueado exitosamente");
+      }
+    )
   }
 
   openSnackBar(message) {

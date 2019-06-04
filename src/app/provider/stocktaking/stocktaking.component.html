@@ -10,8 +10,12 @@
         <p>Cantidad: {{stock.count}}</p>
       </div>
       <div id="iconsContainer">
-        <i class="material-icons" (click)="this._providerService.deleteStock()"> delete </i>
-        <i class="material-icons" (click)="this._providerService.lockedStock()" > not_interested </i>
+        <i class="material-icons" (click)="this._providerService.deleteStock(stock.commodity_id,1)"> delete </i>
+        <i class="material-icons" (click)="this._providerService.lockedStock(stock.commodity_id)" *ngIf="!stock.locked; else unlock"
+        > not_interested </i>
+        <ng-template #unlock>
+          <i class="material-icons" style="color: red" (click)="this._providerService.unlockedStock(stock.commodity_id)"> not_interested </i>
+        </ng-template>
         <i class="material-icons" (click)="openCreateStock(false, stock)"> create </i>
       </div>
     </div>  
@@ -25,4 +29,3 @@
     <p>Cargando</p>
   </div>
 </ng-template>
-
