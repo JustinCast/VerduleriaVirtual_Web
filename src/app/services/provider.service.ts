@@ -23,8 +23,8 @@ export class ProviderService {
     this.dialog.closeAll();
   }
 
-  getStocks(productId) {
-    this.http.get(`${environment.SERVER_BASE_URL}getStockOfProvider/${productId}`).subscribe(
+  getStocks(providerId) {
+    this.http.get(`${environment.SERVER_BASE_URL}getStockOfProvider/${providerId}`).subscribe(
       data => {
         this.stockList = data; console.log(data)
         console.log(data);
@@ -51,7 +51,8 @@ export class ProviderService {
     }).subscribe(
       () => {
         this.closeDialogs(),
-          this.openSnackBar("Creado exitosamente");
+        this.openSnackBar("Creado exitosamente"),
+        this.getStocks(1);
       }
     )
   }
@@ -65,7 +66,8 @@ export class ProviderService {
     }).subscribe(
       () => {
         this.closeDialogs(),
-          this.openSnackBar("Modificado exitosamente")
+          this.openSnackBar("Modificado exitosamente"),
+          this.getStocks(1);
       }
     )
   }
@@ -83,7 +85,8 @@ export class ProviderService {
     this.http.get(`${environment.SERVER_BASE_URL}deleteCommodity/${commodity_id}/${provider_id}`).subscribe(
       data => {
         console.log("data"+JSON.stringify(data)),
-        data[0].delete_commodity ? this.openSnackBar("Eliminado exitosamente") :  this.openSnackBar("No se puede eliminar el inventario");
+        data[0].delete_commodity ? this.openSnackBar("Eliminado exitosamente") :  this.openSnackBar("No se puede eliminar el inventario"),
+        this.getStocks(1);
       }
     )
 
@@ -94,7 +97,8 @@ export class ProviderService {
     this.http.get(`${environment.SERVER_BASE_URL}lockedStock/${commodity_id}/${lock}`).subscribe(
       data => {
         console.log(data);
-        this.openSnackBar("Bloqueado exitosamente");
+        this.openSnackBar("Bloqueado exitosamente"),
+        this.getStocks(1);
       }
     )
   }
@@ -104,7 +108,8 @@ export class ProviderService {
     this.http.get(`${environment.SERVER_BASE_URL}lockedStock/${commodity_id}/${lock}`).subscribe(
       data => {
         console.log(data);
-        this.openSnackBar("Desbloqueado exitosamente");
+        this.openSnackBar("Desbloqueado exitosamente"),
+        this.getStocks(1);
       }
     )
   }
