@@ -119,5 +119,4 @@ export class ProviderService {
       duration: 3000
     });
   }
-
 }

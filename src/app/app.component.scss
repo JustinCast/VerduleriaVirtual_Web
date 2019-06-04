@@ -17,12 +17,14 @@
 a{
   padding: 0.5% 1% 0.5% 1%;
   color: $primary-text-color;
+  font-size: 18px;
 }
 
 a:hover{
   cursor: pointer;
   color: $secondary-text-color;
   text-decoration:none; 
+  font-size: 18px;
 }
 
 h1{

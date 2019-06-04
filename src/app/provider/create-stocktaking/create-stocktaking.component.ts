@@ -28,7 +28,7 @@ export class CreateStocktakingComponent implements OnInit {
 
   ngOnInit() {
     this._providerServices.action ? (this.title = "Crear inventario", this.buttonLabel = "Crear")
-      : (this.title = "Modificar inventario", this.buttonLabel = "Modificar")
+      : (this.title = "Modificar inventario", this.buttonLabel = "Modificar");
 
     this._providerServices.getProducts();
 
@@ -62,6 +62,4 @@ export class CreateStocktakingComponent implements OnInit {
     this._providerServices.aboutStock(currentStock);
 
   }
-
-
 }

@@ -1,13 +1,10 @@
 <div class="mainContainer">
-  
   <form
     [formGroup]="stockFG"
     (ngSubmit)="onSubmit()"
   >
   <h4 style="text-align: center">{{title}}</h4>
-
     <p *ngIf="this._providerServices.action == false" style="text-align: center; font-size: 25px">{{this.stock.productname}}</p>
-
     <mat-form-field *ngIf="this._providerServices.action == true">
       <mat-label>Seleccione el producto</mat-label>
       <mat-select [(ngModel)]="product" [ngModelOptions]="{standalone: true}"
