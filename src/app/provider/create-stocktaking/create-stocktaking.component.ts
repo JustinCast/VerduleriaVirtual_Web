@@ -60,6 +60,5 @@ export class CreateStocktakingComponent implements OnInit {
       : currentStock.idCommodity = this._providerServices.stockToModify.commodity_id;
 
     this._providerServices.aboutStock(currentStock);
-
   }
 }
