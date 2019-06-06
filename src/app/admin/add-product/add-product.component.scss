@@ -1,5 +1,27 @@
 @import '../../ui-utils/variables';
 
+@media screen and (min-width: 601px) {
+  #main {
+    width: 70%;
+  }
+}
+@media screen and (max-width: 700px) {
+  #main {
+    width: 100%;
+  }
+}
+
+@media screen and (min-width: 601px) {
+  form {
+    width: 70%;
+  }
+}
+@media screen and (max-width: 700px) {
+  form {
+    width: 100%;
+  }
+}
+
 h1 {
   color: $primary-text-color
 }
@@ -8,14 +30,12 @@ h1 {
   flex-direction: column;
   justify-content: center;
   margin: auto;
-  width: 70%;
   height: 100%;
 }
 form{
   display: flex;
   flex-direction: column;
   justify-content: center;
-  width: 60%;
   margin: auto;
   text-align: center;
   border: 0.5px solid rgba($color: #b8b8b8b4, $alpha: 0.2);

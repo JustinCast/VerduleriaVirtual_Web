@@ -1,4 +1,16 @@
 @import '../../ui-utils/variables';
+
+@media screen and (min-width: 601px) {
+  mat-form-field {
+    width: 40%;
+  }
+}
+@media screen and (max-width: 700px) {
+  mat-form-field {
+    width: 90%;
+  }
+}
+
 #purchases-report-container{
   display: flex;
   flex-direction: column;
@@ -12,9 +24,6 @@ div.container {
   padding: 1%;
 }
 
-mat-form-field{
-  width: 60%
-}
 h3{
   color: $primary-text-color
 }
