@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MatCardModule, MatFormFieldModule, MatInputModule, MatButtonModule, MatDialogModule, MatSelectModule, MatProgressSpinnerModule, MatSnackBarModule } from "@angular/material";
+import { MatCardModule, MatFormFieldModule, MatInputModule, MatButtonModule, MatDialogModule, MatSelectModule, MatProgressSpinnerModule, MatSnackBarModule,MatSlideToggleModule } from "@angular/material";
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 @NgModule({
@@ -17,6 +17,7 @@ import { HttpClientModule } from '@angular/common/http';
     MatProgressSpinnerModule,
     MatSnackBarModule,
     HttpClientModule,
+    MatSlideToggleModule
   ],
   exports: [
     MatCardModule,
@@ -29,6 +30,7 @@ import { HttpClientModule } from '@angular/common/http';
     MatProgressSpinnerModule,
     MatSnackBarModule,
     HttpClientModule,
+    MatSlideToggleModule
   ]
 })
 export class SharedModule { }
