@@ -13,8 +13,8 @@ export class loginService {
    * Function to verify the user into system
    * @param config (username, password)
    */
+  //
   login(username: string, password: string): Observable<any> {
     return this.http.post(`${environment.SERVER_BASE_URL}login`,{username, password});
   }
-
 }
