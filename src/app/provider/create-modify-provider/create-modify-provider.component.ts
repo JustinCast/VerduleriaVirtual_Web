@@ -86,7 +86,7 @@ export class CreateModifyProviderComponent implements OnInit {
   onNoClick(): void {
     this.dialogRef.close();
   }
-  dragEnd(event){
+  dragEnd(event) {
     this.lat = event.coords.lat;
     this.lon = event.coords.lng;
   }
@@ -130,7 +130,7 @@ export class CreateModifyProviderComponent implements OnInit {
         password: this.providerGroup.get('password').value === '' ? null : this.providerGroup.get('newPassword').value,
         lat: this.lat,
         lon: this.lon,
-        create: false
+        block: false
       }
       return provider;
     }
@@ -148,8 +148,18 @@ export class CreateModifyProviderComponent implements OnInit {
     } else {
       this._providerService.updateOrCreateProvider(provider).subscribe(res => {
         this.snackbar('Se realizo correctamente', 'Aceptado');
-        console.log(res);
-        this.dialogRef.close();
+        if (this.actualProvider.id === undefined) { // Return provider
+          this.dialogRef.close({
+            id: res[0].id,
+            user_name: provider.user_name,
+            name: provider.name,
+            lat: provider.lat,
+            lon: provider.lon,
+            block: false,
+            ranking: 0
+          });
+        }
+        else { this.dialogRef.close(); }
       }, err => this.snackbar(err, 'ERROR'))
     }
   }

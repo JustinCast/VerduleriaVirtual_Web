@@ -22,13 +22,17 @@ export class ProvidersComponent implements OnInit {
     this._ps.getProviders(this.actualUser.id).subscribe(list => {
       this.listProviders = list.slice();
       this.loading = false;
-      console.log(this.listProviders);
     }, err =>{ console.log(err); this.loading = false;});
   }
 
   // Open dialog for create or update provider
   openDialog(){
-    this.actualUser.id === 'admin' ? this._dialog.openCreateProviders(null) : this._dialog.openCreateProviders(this.listProviders[0]);
+    this.actualUser.id === 'admin' ?
+    this._dialog.openCreateProviders(null).subscribe(newProvider => {
+      if(newProvider !== undefined)
+        this.listProviders.push(newProvider);
+    })
+     : this._dialog.openCreateProviders(this.listProviders[0]);
   }
   /**
      * Function to show snackbar
