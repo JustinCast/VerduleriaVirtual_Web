@@ -1,23 +1,38 @@
-import { NgModule } from "@angular/core";
-import { CommonModule } from "@angular/common";
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { ProviderRootComponent } from './provider-root/provider-root.component';
+import { ProviderRoutingModule } from './provider-routing.module';
+import { ProvidersComponent } from './providers/providers.component';
+import { SharedModule } from '../shared/shared.module';
+import { AgmCoreModule } from '@agm/core';
 import { StocktakingComponent } from "./stocktaking/stocktaking.component";
 import { CreateStocktakingComponent } from "./create-stocktaking/create-stocktaking.component";
-import { ProviderRootComponent } from "./provider-root/provider-root.component";
-import { ProviderRoutingModule } from "./provider-routing.module";
 import { PurchasesReportComponent } from "./purchases-report/purchases-report.component";
-import { SharedModule } from "../shared/shared.module";
 import { PurchasesResultDialogComponent } from "./purchases-result-dialog/purchases-result-dialog.component";
+import { CreateModifyProviderComponent } from './create-modify-provider/create-modify-provider.component';
 
 @NgModule({
   declarations: [
     ProviderRootComponent,
+    ProvidersComponent,
     PurchasesReportComponent,
     PurchasesResultDialogComponent,
+    CreateModifyProviderComponent,
     StocktakingComponent,
-    CreateStocktakingComponent
+    CreateStocktakingComponent,
+    CreateModifyProviderComponent
   ],
-  imports: [CommonModule, ProviderRoutingModule, SharedModule],
-  entryComponents: [PurchasesResultDialogComponent],
+  imports: [
+    CommonModule,
+    ProviderRoutingModule,
+    SharedModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyBHGUUQv1uL0NOQ3C1vB8LfbOQEFNlrQHg'
+    })
+  ],
+  entryComponents: [
+    PurchasesResultDialogComponent,
+    CreateModifyProviderComponent],
   exports: [ProviderRootComponent]
 })
 export class ProviderModule {}

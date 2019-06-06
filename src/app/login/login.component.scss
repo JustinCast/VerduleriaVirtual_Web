@@ -1,0 +1,75 @@
+@import '../ui-utils/_variables';
+
+@media screen and(min-width: 601px) {
+  .full-width {
+    width: 80%;
+  }
+  .full-width-password {
+    width: 75%;
+  }
+  .main{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    height: 100%;
+    width: 30%;
+    margin: auto;
+  }
+  .button{
+    width: 30%;
+    margin-left: 3%;
+    margin-top: 2%;
+  }
+
+}
+@media screen and(max-width: 700px) {
+  .full-width {
+    width: 60%;
+  }
+
+  .full-width-password {
+    width: 55%;
+  }
+  .main{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    margin: auto;
+
+  }
+  .button{
+    width: 40%;
+    margin-left: 3%;
+    margin-top: 2%;
+  }
+}
+.spinner{
+  position: fixed;
+  z-index: 999;
+  height: 2em;
+  width: 2em;
+  overflow: visible;
+  margin: auto;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+.title{
+  color: $primary-text-color;
+  text-align: center;
+}
+
+.form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+  text-align: center;
+}
+.icon{
+  cursor: pointer;
+}
+
+

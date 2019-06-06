@@ -2,8 +2,8 @@ import { Injectable } from "@angular/core";
 import { HttpClient, HttpErrorResponse } from "@angular/common/http";
 import { environment } from "src/environments/environment";
 import { Observable } from "rxjs";
+import { MatSnackBar } from "@angular/material";
 import { PurchaseReport } from "../models/PurchaseReport";
-import { MatSnackBar } from '@angular/material';
 import { DialogService } from './dialog.service';
 
 @Injectable({
@@ -16,14 +16,31 @@ export class ProviderService {
   stockToModify: any;
   
   constructor(private _http: HttpClient, private _snackBar: MatSnackBar, public _dialog: DialogService) {}
-  
+
+
+  /**
+   * Function to get Providers
+   * @param {id}
+   * return list providers{id,username,name,lat,lon}
+   */
+  getProviders(id): Observable<any> {
+    return this._http.get(`${environment.SERVER_BASE_URL}getProviders/${id}`);
+  }
 
   getPurchasesReport(id_provider: number, initial_date: string, final_date: string): Observable<Array<PurchaseReport>> {
     return this._http.get<Array<PurchaseReport>>(
       `${environment.SERVER_BASE_URL}getPurchasesByProvider/${id_provider}/${initial_date}/${final_date}`
     );
   }
-  
+/**
+   * Function to delete provider
+   * @param id
+   * confirmation
+   */
+  deleteProvider(id): Observable<any> {
+    return this._http.delete(`${environment.SERVER_BASE_URL}deleteProvider/${id}`);
+  }
+
   handleError(err: HttpErrorResponse) {
     if (err.error instanceof Error) {
       // Error del lado del cliente
@@ -134,5 +151,30 @@ export class ProviderService {
     this._snackBar.open(message, "cerrar", {
       duration: 3000
     });
+  }
+  
+  /**
+   * Function to checkPassword provider
+   * @param {id,password}
+   * return id
+   */
+  checkPassword(id: number , password: string): Observable<any> {
+    return this._http.post(`${environment.SERVER_BASE_URL}checkPassword`, { id, password});
+  }
+  /**
+     * Function to create or update provider
+     * @param provider
+     * confirmation
+     */
+  updateOrCreateProvider(provider): Observable<any>{
+    return this._http.post(`${environment.SERVER_BASE_URL}updateOrCreateProvider`, {provider});
+  }
+  /**
+   * Function to block provider
+   * @param id, block
+   * confirmation
+   */
+  blockProvider(block,id): Observable<any> {
+    return this._http.post(`${environment.SERVER_BASE_URL}blockProvider`, {block, id});
   }
 }

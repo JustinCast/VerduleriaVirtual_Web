@@ -1,0 +1,77 @@
+@import '../../ui-utils/_variables.scss';
+@media screen and(min-width: 601px) {
+
+  .main{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+  .container{
+    border: 1px solid rgba(211, 211, 211, 0.6);
+    border-radius: 5px;
+    width: 60%;
+    padding: 1% 1% 1% 1%;
+    margin-top: 2%;
+  }
+
+}
+@media screen and(max-width: 700px) {
+
+  .main{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+  .container{
+    border: 1px solid rgba(211, 211, 211, 0.6);
+    border-radius: 5px;
+    width: 80%;
+    padding: 1% 1% 1% 1%;
+    margin-top: 2%;
+  }
+}
+
+.title{
+  text-align: center;
+  margin-top: 2%;
+  color: $primary-text-color;
+}
+
+
+#map {
+  width: 100%;
+  height: 100%;
+}
+.subtitle{
+  color: $primary-color;
+}
+.spinner{
+  position: fixed;
+  z-index: 999;
+  height: 2em;
+  width: 2em;
+  overflow: visible;
+  margin: auto;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
+agm-map {
+  width: 100%;
+  height: 100%;
+}
+.icon{
+  margin-left: 5%;
+  color: $primary-text-color;
+  cursor: pointer;
+}
+.custom-button{
+  position: absolute;
+  top: 5%;
+  right: 5%;
+}
+.toggle{
+  margin: 1% 2% 1% 2%;
+}

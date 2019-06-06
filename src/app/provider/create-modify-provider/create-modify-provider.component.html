@@ -1,0 +1,42 @@
+<div *ngIf="!loading">
+  <h2 class="title container">{{ title }}</h2>
+  <hr>
+  <div class="row">
+    <div class="col">
+      <form class="form" [formGroup]="providerGroup" (ngSubmit)="onSubmit()">
+          <mat-form-field class="full-width">
+            <input [formControl]="providerGroup.get('user_name')" required matInput placeholder="Username" >
+          </mat-form-field>
+          <mat-form-field class="full-width">
+            <input [formControl]="providerGroup.get('name')" required matInput placeholder="Name" >
+          </mat-form-field>
+          <p *ngIf="this.data.provider !== null">Verfique su contraseña actual: </p>
+          <mat-form-field id="password" class="full-width-password">
+            <input [type]="show ? 'text' : 'password'" [formControl]="providerGroup.get('password')" required matInput placeholder="Contraseña" >
+          </mat-form-field>
+          <mat-icon class="icon" *ngIf="show && this.data.provider === null" (click)="viewPassword()">visibility</mat-icon>
+          <mat-icon class="icon" *ngIf="!show && this.data.provider === null" (click)="viewPassword()">visibility_off</mat-icon>
+          <mat-icon class="icon" *ngIf="this.data.provider !== null" (click)="checkPassword()">{{icon}}</mat-icon>
+          <mat-form-field class="full-width" *ngIf="showNewPassword">
+            <input [formControl]="providerGroup.get('newPassword')" required matInput placeholder="Nueva Contraseña" >
+          </mat-form-field>
+        </form>
+    </div>
+    <div class="col col-lg">
+      <p>Marque la dirección que desea almacenar: </p>
+      <agm-map class="map" [latitude]="lat" [longitude]="lon" (mapClick)="onChoseLocation($event)">
+        <agm-marker [latitude]="lat" [longitude]="lon" [markerDraggable]="true" (dragEnd)="dragEnd($event)"></agm-marker>
+      </agm-map>
+    </div>
+  </div>
+  <div class="row">
+    <button class="button" mat-stroked-button color="primary" (click)="onSubmit()">
+      Guardar
+    </button>
+  </div>
+
+</div>
+
+<div *ngIf="loading">
+  <mat-spinner class="spinner"></mat-spinner>
+</div>
