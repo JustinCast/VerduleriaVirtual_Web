@@ -5,7 +5,6 @@ import { AdminRoutingModule } from "./admin-routing.module";
 import { AddProductComponent } from "./add-product/add-product.component";
 import { SharedModule } from "../shared/shared.module";
 import { DropZoneDirective } from "./add-product/drop-zone.directive";
-import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -13,7 +12,7 @@ import { HomeComponent } from './home/home.component';
     AddProductComponent,
     AdminRootComponent,
     DropZoneDirective,
-    HomeComponent
+    AdminRootComponent
   ],
   imports: [
     CommonModule,

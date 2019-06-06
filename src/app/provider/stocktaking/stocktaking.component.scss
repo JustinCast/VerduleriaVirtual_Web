@@ -4,7 +4,7 @@
  display: flex;
  justify-content: center;
  flex-direction: column;
- padding: 3%;
+ padding: 2%;
 }
 
 .stocktakingContainer{
@@ -51,4 +51,12 @@ i:hover{
   flex-direction: row; 
   width: 40%; 
   margin: auto
+}
+
+.loading{
+  height: 100%;
+  padding-top:25%;
+  width: 5%; 
+  margin: auto; 
+  text-align: center;
 }

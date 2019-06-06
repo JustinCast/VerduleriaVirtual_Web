@@ -11,6 +11,8 @@ import {
   MatNativeDateModule,
   MatDialogModule,
   MatSelectModule,
+  MatProgressSpinnerModule,
+  MatSlideToggleModule,
 
 } from "@angular/material";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
@@ -18,7 +20,7 @@ import { AngularFireModule } from "angularfire2";
 import { AngularFirestoreModule } from "angularfire2/firestore";
 import { AngularFireStorageModule } from "angularfire2/storage";
 import { environment } from 'src/environments/environment';
-import { HttpClientModule } from "@angular/common/http";
+import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [],
   imports: [
@@ -28,18 +30,19 @@ import { HttpClientModule } from "@angular/common/http";
     MatInputModule,
     MatButtonModule,
     MatIconModule,
-    FormsModule,
     ReactiveFormsModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
     AngularFireStorageModule,
-    HttpClientModule,
-    MatSnackBarModule,
     MatDatepickerModule,
     MatNativeDateModule,
     MatDialogModule,
     FormsModule,
-    MatSelectModule
+    MatSelectModule,
+    MatProgressSpinnerModule,
+    MatSnackBarModule,
+    HttpClientModule,
+    MatSlideToggleModule
   ],
   exports: [
     MatCardModule,
@@ -52,12 +55,14 @@ import { HttpClientModule } from "@angular/common/http";
     AngularFireModule,
     AngularFirestoreModule,
     AngularFireStorageModule,
-    HttpClientModule,
-    MatSnackBarModule,
     MatDatepickerModule,
     MatNativeDateModule,
     MatDialogModule,
-    MatSelectModule
+    MatSelectModule,
+    MatProgressSpinnerModule,
+    MatSnackBarModule,
+    HttpClientModule,
+    MatSlideToggleModule
   ]
 })
 export class SharedModule {}

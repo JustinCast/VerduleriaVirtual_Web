@@ -1,26 +1,25 @@
 <div class="mainContainer">
-  
   <form
     [formGroup]="stockFG"
     (ngSubmit)="onSubmit()"
   >
   <h4 style="text-align: center">{{title}}</h4>
-
-    <mat-form-field>
+    <p *ngIf="this._providerServices.action == false" style="text-align: center; font-size: 25px">{{this.stock.productname}}</p>
+    <mat-form-field *ngIf="this._providerServices.action == true">
       <mat-label>Seleccione el producto</mat-label>
-      <mat-select [formControl]="stockFG.get('product')">
-        <mat-option *ngFor="let product of products" [value]="product.value">
-          {{product.viewValue}}
+      <mat-select [(ngModel)]="product" [ngModelOptions]="{standalone: true}"
+      >
+        <mat-option *ngFor="let product of _providerServices.productsList" [value]="product" >
+          {{product.productname}}
         </mat-option>
       </mat-select>
     </mat-form-field>
 
-
     <mat-form-field>
       <input
-        [formControl]="stockFG.get('quantity')"
+        [formControl]="stockFG.get('count')"
         matInput
-        type="text"
+        type="number"
         placeholder="Cantidad"
       >
     </mat-form-field>
@@ -29,7 +28,7 @@
       <input
         [formControl]="stockFG.get('price')"
         matInput
-        type="text"
+        type="number"
         placeholder="Precio"
       >
     </mat-form-field>
@@ -43,6 +42,7 @@
       >
     </mat-form-field>
     <button
+      disabled
       mat-button
       type="submit"
       [disabled]="!stockFG.valid"

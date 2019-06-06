@@ -1,19 +1,36 @@
 <h2 class="title">Inventario</h2>
-<div class="mainContainer">
+<div class="mainContainer" *ngIf="_providerService.stockList; else loading ">
     <div class="stocktakingContainer shadow-sm"
-    *ngFor="let stock of stockList"
+    *ngFor="let stock of _providerService.stockList"
     >
-      <h3>{{stock.productName}}</h3>
+      <h3>{{stock.productname}}</h3>
       <p>{{stock.description}}</p>
       <div class="containerPriceAndQuantity">
         <p>Precio: {{stock.price}}</p>
-        <p>Cantidad: {{stock.quantity}}</p>
+        <p>Cantidad: {{stock.count}}</p>
       </div>
       <div id="iconsContainer">
-        <i class="material-icons"> delete </i>
-        <i class="material-icons"> not_interested </i>
-        <i class="material-icons" (click)="openCreateStock(false)"> create </i>
+        <i class="material-icons" (click)="openCreateStock(false, stock)"> create </i>
+        <i class="material-icons" (click)="this._providerService.deleteStock(stock.commodity_id,1)"> delete </i>
+        <mat-slide-toggle
+          [checked]="stock.locked"
+          (click)="stock.locked ? this._providerService.unlockedStock(stock.commodity_id) : this._providerService.lockedStock(stock.commodity_id)"
+          >
+          <p *ngIf="stock.locked; else desabled">
+            Desabilitado
+          </p> 
+          <ng-template #desabled>
+            <p>Habilitado</p>
+          </ng-template>
+        </mat-slide-toggle>
       </div>
     </div>  
 </div>
-<button mat-button id="buttonAdd" (click)="openCreateStock(true)">+</button>
+<button mat-button id="buttonAdd" (click)="openCreateStock(true, null)">+</button>
+
+<ng-template #loading>
+  <div class="loading">
+    <mat-spinner strokeWidth=3 diameter=45 style="margin:auto"></mat-spinner>
+    <p>Cargando</p>
+  </div>
+</ng-template>
