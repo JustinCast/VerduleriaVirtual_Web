@@ -4,6 +4,7 @@ import { environment } from "src/environments/environment";
 import { Observable } from "rxjs";
 import { PurchaseReport } from "../models/PurchaseReport";
 import { MatSnackBar } from '@angular/material';
+import { DialogService } from './dialog.service';
 
 @Injectable({
   providedIn: "root"
@@ -14,7 +15,7 @@ export class ProviderService {
   productsList: any; //It's a list of the all products avalibles 
   stockToModify: any;
   
-  constructor(private _http: HttpClient, private _snackBar: MatSnackBar) {}
+  constructor(private _http: HttpClient, private _snackBar: MatSnackBar, public _dialog: DialogService) {}
   
 
   getPurchasesReport(id_provider: number, initial_date: string, final_date: string): Observable<Array<PurchaseReport>> {
@@ -65,7 +66,8 @@ export class ProviderService {
       id_provider: stock.idProvider
     }).subscribe(
       () => {
-        this.openSnackBar("Creado exitosamente"),
+        this._dialog.dialog.closeAll();
+        this.openSnackBar("Creado exitosamente");
         this.getStocks(1);
       }
     )
@@ -79,7 +81,8 @@ export class ProviderService {
       id_commodity: stock.idCommodity
     }).subscribe(
       () => {
-        this.openSnackBar("Modificado exitosamente"),
+        this._dialog.dialog.closeAll();
+        this.openSnackBar("Modificado exitosamente");
         this.getStocks(1);
       }
     )

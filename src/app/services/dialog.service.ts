@@ -9,7 +9,7 @@ import { PurchasesResultDialogComponent } from '../provider/purchases-result-dia
 })
 export class DialogService {
 
-  constructor(private dialog: MatDialog) { }
+  constructor(public dialog: MatDialog) { }
 
   public openCreateStock() {
     let dialogRef = this.dialog.open(CreateStocktakingComponent, {
