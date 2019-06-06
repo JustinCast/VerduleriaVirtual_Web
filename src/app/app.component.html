@@ -1,9 +1,9 @@
 <div class="mainContainer shadow-sm rounded">
   <div class="navBar">
-    <a *ngIf="admin" [routerLink]="">Producto</a>
-    <a [routerLink]="">Proveedor</a>
-    <a *ngIf="provider" [routerLink]="['provider/show-stocktaking']">Inventario</a>
-    <a *ngIf="provider"[routerLink]="">reportes</a>
+    <a *ngIf="admin" [routerLink]="['/admin/add-product']">Producto</a>
+    <a [routerLink]="['/provider/providers']">Proveedor</a>
+    <a *ngIf="provider" [routerLink]="['/provider/show-stocktaking']">Inventario</a>
+    <a *ngIf="provider"[routerLink]="['/provider/purchases-report']">reportes</a>
     <a class="leaveOption" [routerLink]="">Salir</a>
   </div>
   <!--<h1>Verduleria virtual</h1>-->

@@ -28,10 +28,6 @@ import { ProviderService } from './services/provider.service';
     SharedModule,
     RouterModule.forRoot(ROUTES)
   ],
-  providers: [
-    loginService,
-    ProviderService
-  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ProviderService } from 'src/app/services/provider.service';
+import { MatDialogRef } from '@angular/material';
 
 @Component({
   selector: 'app-create-stocktaking',
@@ -16,6 +17,7 @@ export class CreateStocktakingComponent implements OnInit {
   currentStock: any;
 
   constructor(
+    public dialogRef: MatDialogRef<CreateStocktakingComponent>,
     private formBuilder: FormBuilder,
     private _providerServices: ProviderService
   ) {
@@ -60,5 +62,9 @@ export class CreateStocktakingComponent implements OnInit {
       : currentStock.idCommodity = this._providerServices.stockToModify.commodity_id;
 
     this._providerServices.aboutStock(currentStock);
+  }
+
+  onNoClick(): void {
+    this.dialogRef.close();
   }
 }

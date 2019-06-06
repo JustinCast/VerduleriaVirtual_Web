@@ -15,7 +15,7 @@ export class ProviderService {
   productsList: any; //It's a list of the all products avalibles 
   stockToModify: any;
   
-  constructor(private _http: HttpClient, private _snackBar: MatSnackBar, public _dialog: DialogService) {}
+  constructor(private _http: HttpClient, private _snackBar: MatSnackBar) {}
 
 
   /**
@@ -83,7 +83,6 @@ export class ProviderService {
       id_provider: stock.idProvider
     }).subscribe(
       () => {
-        this._dialog.dialog.closeAll();
         this.openSnackBar("Creado exitosamente");
         this.getStocks(1);
       }
@@ -98,7 +97,6 @@ export class ProviderService {
       id_commodity: stock.idCommodity
     }).subscribe(
       () => {
-        this._dialog.dialog.closeAll();
         this.openSnackBar("Modificado exitosamente");
         this.getStocks(1);
       }

@@ -13,12 +13,7 @@ import {
   MatNativeDateModule,
   MatDialogModule,
   MatSelectModule,
-<<<<<<< HEAD
-  MatProgressSpinnerModule,
-  MatSlideToggleModule,
-=======
   MatSlideToggleModule
->>>>>>> pablo_dev
 
 } from "@angular/material";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
@@ -35,12 +30,8 @@ import { HttpClientModule } from '@angular/common/http';
     MatFormFieldModule,
     MatInputModule,
     MatIconModule,
-<<<<<<< HEAD
-=======
     MatButtonModule,
-    MatProgressSpinnerModule,
     MatCheckboxModule,
->>>>>>> pablo_dev
     ReactiveFormsModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
@@ -50,12 +41,9 @@ import { HttpClientModule } from '@angular/common/http';
     MatDialogModule,
     FormsModule,
     MatSelectModule,
-<<<<<<< HEAD
     MatProgressSpinnerModule,
     MatSnackBarModule,
     HttpClientModule,
-=======
->>>>>>> pablo_dev
     MatSlideToggleModule
   ],
   exports: [
@@ -75,12 +63,8 @@ import { HttpClientModule } from '@angular/common/http';
     MatNativeDateModule,
     MatDialogModule,
     MatSelectModule,
-<<<<<<< HEAD
-    MatProgressSpinnerModule,
     MatSnackBarModule,
     HttpClientModule,
-=======
->>>>>>> pablo_dev
     MatSlideToggleModule
   ]
 })

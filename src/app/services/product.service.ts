@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import * as firebase from 'firebase';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Product } from '../models/Product';
 import { environment } from 'src/environments/environment';

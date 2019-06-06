@@ -20,7 +20,6 @@ import { CreateModifyProviderComponent } from './create-modify-provider/create-m
     CreateModifyProviderComponent,
     StocktakingComponent,
     CreateStocktakingComponent,
-    CreateModifyProviderComponent
   ],
   imports: [
     CommonModule,
@@ -32,7 +31,9 @@ import { CreateModifyProviderComponent } from './create-modify-provider/create-m
   ],
   entryComponents: [
     PurchasesResultDialogComponent,
-    CreateModifyProviderComponent],
+    CreateModifyProviderComponent,
+    CreateStocktakingComponent
+  ],
   exports: [ProviderRootComponent]
 })
 export class ProviderModule {}

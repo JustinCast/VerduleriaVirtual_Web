@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 import { loginService } from '../services/login.service';
 import {MatSnackBar} from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -15,7 +16,8 @@ export class LoginComponent implements OnInit {
   constructor(
     private _fb: FormBuilder,
     public loginService: loginService,
-    private _snackBar: MatSnackBar
+    private _snackBar: MatSnackBar,
+    private _router: Router
 
   ) {
     this.loginGroup = this._fb.group({

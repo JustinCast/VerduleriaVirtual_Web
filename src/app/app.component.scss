@@ -1,4 +1,4 @@
-@import 'ui-utils/variables.scss';
+@import 'ui-utils/_variables.scss';
 
 .mainContainer{
   display:flex; 
@@ -7,7 +7,6 @@
 }
 
 .navBar{
-  background-color: $primary-color;
   width: 100%;
   display:flex; 
   justify-content: center;
