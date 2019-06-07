@@ -19,7 +19,7 @@ export class CreateStocktakingComponent implements OnInit {
   constructor(
     public dialogRef: MatDialogRef<CreateStocktakingComponent>,
     private formBuilder: FormBuilder,
-    private _providerServices: ProviderService
+    public _providerServices: ProviderService
   ) {
     this.stockFG = this.formBuilder.group({
       count: ['', Validators.required],

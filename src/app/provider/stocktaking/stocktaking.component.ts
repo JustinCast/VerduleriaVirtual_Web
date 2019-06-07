@@ -12,7 +12,7 @@ export class StocktakingComponent implements OnInit {
 
   constructor(
     private _dialogService: DialogService,
-    private _providerService: ProviderService
+    public _providerService: ProviderService
   ) { }
 
   ngOnInit() {
