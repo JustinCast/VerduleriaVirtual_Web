@@ -16,6 +16,7 @@ export class AppComponent implements OnInit {
   ngOnInit() {
     JSON.parse(localStorage.getItem('actual_user')).id === 'admin' ? this.admin = true : this.provider = true;
   }
+  //
   signOut(){
     this.loginService.isLogin = true;
   }
