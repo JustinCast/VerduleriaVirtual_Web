@@ -4,7 +4,7 @@ import { environment } from "src/environments/environment";
 import { Observable } from "rxjs";
 import { MatSnackBar } from "@angular/material";
 import { PurchaseReport } from "../models/PurchaseReport";
-import { DialogService } from './dialog.service';
+
 
 @Injectable({
   providedIn: "root"
@@ -12,9 +12,9 @@ import { DialogService } from './dialog.service';
 export class ProviderService {
   action: boolean;
   stockList: any;
-  productsList: any; //It's a list of the all products avalibles 
+  productsList: any; //It's a list of the all products avalibles
   stockToModify: any;
-  
+
   constructor(private _http: HttpClient, private _snackBar: MatSnackBar) {}
 
 
@@ -84,7 +84,7 @@ export class ProviderService {
     }).subscribe(
       () => {
         this.openSnackBar("Creado exitosamente");
-        this.getStocks(1);
+        this.getStocks(JSON.parse(localStorage.getItem('actual_user')).id);
       }
     )
   }
@@ -98,7 +98,7 @@ export class ProviderService {
     }).subscribe(
       () => {
         this.openSnackBar("Modificado exitosamente");
-        this.getStocks(1);
+        this.getStocks(JSON.parse(localStorage.getItem('actual_user')).id);
       }
     )
   }
@@ -117,7 +117,7 @@ export class ProviderService {
       data => {
         console.log("data"+JSON.stringify(data)),
         data[0].delete_commodity ? this.openSnackBar("Eliminado exitosamente") :  this.openSnackBar("No se puede eliminar el inventario"),
-        this.getStocks(1);
+        this.getStocks(JSON.parse(localStorage.getItem('actual_user')).id);
       }
     )
 
@@ -129,7 +129,7 @@ export class ProviderService {
       data => {
         console.log(data);
         this.openSnackBar("Bloqueado exitosamente"),
-        this.getStocks(1);
+        this.getStocks(JSON.parse(localStorage.getItem('actual_user')).id);
       }
     )
   }
@@ -140,7 +140,7 @@ export class ProviderService {
       data => {
         console.log(data);
         this.openSnackBar("Desbloqueado exitosamente"),
-        this.getStocks(1);
+        this.getStocks(JSON.parse(localStorage.getItem('actual_user')).id);
       }
     )
   }
@@ -150,7 +150,7 @@ export class ProviderService {
       duration: 3000
     });
   }
-  
+
   /**
    * Function to checkPassword provider
    * @param {id,password}
