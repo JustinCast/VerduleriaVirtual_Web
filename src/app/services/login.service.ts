@@ -7,7 +7,11 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class loginService {
-  constructor(private http: HttpClient) { }
+  isLogin = undefined;
+  constructor(private http: HttpClient) {
+    // Todo agregar o guardar en el storage
+    this.isLogin = true;
+   }
 
   /**
    * Function to verify the user into system

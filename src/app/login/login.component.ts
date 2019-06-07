@@ -27,6 +27,7 @@ export class LoginComponent implements OnInit {
    }
 
   ngOnInit() {
+
   }
   // click event function toggle
   password() {
@@ -54,6 +55,7 @@ export class LoginComponent implements OnInit {
       localStorage.setItem('actual_user', JSON.stringify({id: 'admin', nombre: 'admin'}));
       this.snackbar(`Bienvenido Administrador`, 'Aceptado');
       this.loading = false;
+      this.loginService.isLogin = false;
     } else { // Provider
       this.loginService.login(
         this.loginGroup.get('username').value,
@@ -62,6 +64,7 @@ export class LoginComponent implements OnInit {
           localStorage.setItem('actual_user', JSON.stringify({id: user[0].id, nombre: user[0].name}));
           this.snackbar(`Bienvenido ${user[0].name.charAt(0).toUpperCase() + user[0].name.slice(1)}`, 'Aceptado');
           this.loading = false;
+          this.loginService.isLogin = false;
           // TODO: navegar al main
         } else {
           this.snackbar(`Información incorrecta o esta bloqueado`, 'ERROR');

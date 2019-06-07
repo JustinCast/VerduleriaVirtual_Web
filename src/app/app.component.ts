@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { loginService } from './services/login.service';
 
 @Component({
   selector: 'app-root',
@@ -8,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 export class AppComponent implements OnInit {
   title = 'verduleriavirtualweb';
   admin = false;
-  provider = true;
+  provider = false;
+  constructor(private loginService: loginService) {
 
+  }
   ngOnInit() {
-    JSON.parse(localStorage.getItem('actual_user')).id == 'admin' ? this.admin = true : this.provider=true
+    JSON.parse(localStorage.getItem('actual_user')).id === 'admin' ? this.admin = true : this.provider = true;
+  }
+  signOut(){
+    this.loginService.isLogin = true;
   }
 }
