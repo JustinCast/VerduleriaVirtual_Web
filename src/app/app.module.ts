@@ -12,11 +12,13 @@ import { LoginComponent } from './login/login.component';
 import { loginService } from './services/login.service';
 import { HttpClientModule } from '@angular/common/http';
 import { ProviderService } from './services/provider.service';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent
+    LoginComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

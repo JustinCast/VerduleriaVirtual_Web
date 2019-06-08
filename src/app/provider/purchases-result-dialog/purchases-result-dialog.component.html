@@ -6,8 +6,12 @@
       <hr>
       <p><strong>Cantidad: </strong>{{p._total_product}}</p>
       <p><strong>Precio unitario: </strong>{{p.price}}</p>
-      <p><strong>Precio total: </strong>{{p.total_price}}</p>
       <p><strong>Fecha: </strong>{{p._date | date : 'full'}}</p>
     </li>
   </ul>
+  <footer class="container">
+    <h5 class="text-primary text-left">
+      Precio total: {{total}}
+    </h5>
+  </footer>
 </div>

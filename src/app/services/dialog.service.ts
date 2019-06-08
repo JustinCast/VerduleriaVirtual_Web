@@ -29,7 +29,7 @@ export class DialogService {
     let dialogRef: MatDialogRef<PurchasesResultDialogComponent>;
     dialogRef = this.dialog.open(PurchasesResultDialogComponent, {
       width: "70%",
-      height: "80%",
+      height: "90%",
       data: {
         purchases: purchases,
         initialDate: initialDate,

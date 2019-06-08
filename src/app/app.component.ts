@@ -5,13 +5,6 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit {
+export class AppComponent {
   title = 'verduleriavirtualweb';
-  admin = false;
-  provider = true;
-
-  ngOnInit() {
-    if(localStorage.getItem('actual_user') !== null)
-      JSON.parse(localStorage.getItem('actual_user')).id == 'admin' ? this.admin = true : this.provider=true
-  }
 }
