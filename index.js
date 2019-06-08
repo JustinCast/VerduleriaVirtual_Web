@@ -28,10 +28,10 @@ function config() {
  * Endpoints Config
  */
 function routerConfig() {
-  app.use(express.static(__dirname + "/dist/VerduleriaVirtualWeb"));
+  app.use(express.static(__dirname + "/dist/verduleriavirtualweb"));
   app.use('/api', api);
   app.get("/*", function(req, res) {
-    res.sendFile(path.join(__dirname + "/dist/VerduleriaVirtualWeb/index.html"));
+    res.sendFile(path.join(__dirname + "/dist/verduleriavirtualweb/index.html"));
   });
 }
 
