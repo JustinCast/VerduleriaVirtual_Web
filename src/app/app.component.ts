@@ -11,6 +11,7 @@ export class AppComponent implements OnInit {
   provider = true;
 
   ngOnInit() {
-    JSON.parse(localStorage.getItem('actual_user')).id == 'admin' ? this.admin = true : this.provider=true
+    if(localStorage.getItem('actual_user') !== null)
+      JSON.parse(localStorage.getItem('actual_user')).id == 'admin' ? this.admin = true : this.provider=true
   }
 }
