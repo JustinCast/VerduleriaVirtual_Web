@@ -58,8 +58,7 @@ export class ProviderService {
   getStocks(providerId) {
     this._http.get(`${environment.SERVER_BASE_URL}getStockOfProvider/${providerId}`).subscribe(
       data => {
-        this.stockList = data; console.log(data)
-        console.log(data);
+        this.stockList = data;
       }
     )
   }

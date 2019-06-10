@@ -1,4 +1,3 @@
-<h2 class="title">Inventario</h2>
 <div class="mainContainer" *ngIf="_providerService.stockList; else loading ">
     <div class="stocktakingContainer shadow-sm"
     *ngFor="let stock of _providerService.stockList"
@@ -16,17 +15,17 @@
           [checked]="stock.locked"
           (click)="stock.locked ? this._providerService.unlockedStock(stock.commodity_id) : this._providerService.lockedStock(stock.commodity_id)"
           >
-          <p *ngIf="stock.locked; else desabled">
+          <span *ngIf="stock.locked; else desabled">
             Desabilitado
-          </p> 
+          </span> 
           <ng-template #desabled>
-            <p>Habilitado</p>
+            <span>Habilitado</span>
           </ng-template>
         </mat-slide-toggle>
       </div>
     </div>  
 </div>
-<button mat-button id="buttonAdd" (click)="openCreateStock(true, null)">+</button>
+<button mat-fab id="buttonAdd" (click)="openCreateStock(true, null)"><mat-icon>add</mat-icon></button>
 
 <ng-template #loading>
   <div class="loading">

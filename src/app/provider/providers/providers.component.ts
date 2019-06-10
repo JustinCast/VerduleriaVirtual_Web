@@ -14,11 +14,11 @@ export class ProvidersComponent implements OnInit {
   actualUser: Provider = null;
   constructor(private _ps: ProviderService,private _dialog: DialogService,private _snackBar: MatSnackBar) {
     // Get actual user
-    this.actualUser = JSON.parse(localStorage.getItem('actual_user'));
   }
-
+  
   ngOnInit() {
     this.loading = true;
+    this.actualUser = JSON.parse(localStorage.getItem('actual_user'));
     this._ps.getProviders(this.actualUser.id).subscribe(list => {
       this.listProviders = list.slice();
       this.loading = false;

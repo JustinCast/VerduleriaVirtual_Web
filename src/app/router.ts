@@ -9,7 +9,6 @@ export const ROUTES: Routes = [
   {path: 'admin', component: AdminRootComponent},
   {path: 'provider', component: ProviderRootComponent},
   {path: 'login', component: LoginComponent},
-  {path: 'main', component: AppComponent},
   {path: 'home', component: HomeComponent},
   {path: '', component: LoginComponent}
 ]

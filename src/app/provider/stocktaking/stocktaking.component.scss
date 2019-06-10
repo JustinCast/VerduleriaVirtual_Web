@@ -9,8 +9,7 @@
 
 .stocktakingContainer{
   width: 60%;
-  text-align: center;  
-  background-color: $primary-color;
+  text-align: center;
   padding: 2%;
   margin: 0.5% auto 0.5% auto;
   border-radius: 5px;
@@ -18,7 +17,7 @@
 
 #iconsContainer{
   display: flex;
-  justify-content:flex-end;
+  justify-content: space-evenly;
   flex-direction: row;
 }
 

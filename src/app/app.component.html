@@ -1,1 +1,11 @@
+<div class="mainContainer shadow-sm rounded" *ngIf="actualUser !== null">
+  <div class="navBar">
+    <a *ngIf="actualUser.id === 'admin'" [routerLink]="['/admin/add-product']">Producto</a>
+    <a [routerLink]="['/provider/providers']">Proveedor</a>
+    <a *ngIf="actualUser.id !== 'admin'" [routerLink]="['/provider/show-stocktaking']">Inventario</a>
+    <a *ngIf="actualUser.id !== 'admin'"[routerLink]="['/provider/purchases-report']">Reportes</a>
+    <a class="leaveOption" (click)="logout(); false">Salir</a>
+  </div>
+</div>
+
 <router-outlet></router-outlet>

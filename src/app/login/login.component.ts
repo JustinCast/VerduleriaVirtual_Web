@@ -25,7 +25,10 @@ export class LoginComponent implements OnInit {
     });
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    if(localStorage.getItem('actual_user') !== null)
+      this._router.navigate(['/home'])
+  }
   // click event function toggle
   password() {
     this.show = !this.show;
@@ -59,6 +62,7 @@ export class LoginComponent implements OnInit {
       this.snackbar(`Bienvenido Administrador`, "Aceptado");
       this.loading = false;
       this._router.navigate(['/home']);
+      this.loginService.auth();
     } else {
       // Provider
       this.loginService
@@ -80,6 +84,7 @@ export class LoginComponent implements OnInit {
               );
               this.loading = false;
               this._router.navigate(['/home']);
+              this.loginService.auth();
             } else {
               this.snackbar(`Información incorrecta o esta bloqueado`, "ERROR");
               this.loading = false;

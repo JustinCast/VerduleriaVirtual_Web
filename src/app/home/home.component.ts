@@ -6,21 +6,10 @@ import { Router } from '@angular/router';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent {
   admin = false;
   provider = true;
 
   constructor(private _router: Router) { }
-
-
-  ngOnInit() {
-    if(localStorage.getItem('actual_user') !== null)
-      JSON.parse(localStorage.getItem('actual_user')).id == 'admin' ? this.admin = true : this.provider=true
-  }
-
-  logout() {
-    localStorage.removeItem('actual_user');
-    this._router.navigate(['/login'])
-  }
 
 }

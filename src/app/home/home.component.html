@@ -1,13 +1,3 @@
-<div class="mainContainer shadow-sm rounded">
-  <div class="navBar">
-    <a *ngIf="admin" [routerLink]="['/admin/add-product']">Producto</a>
-    <a [routerLink]="['/provider/providers']">Proveedor</a>
-    <a *ngIf="provider" [routerLink]="['/provider/show-stocktaking']">Inventario</a>
-    <a *ngIf="provider"[routerLink]="['/provider/purchases-report']">Reportes</a>
-    <a class="leaveOption" (click)="logout(); false">Salir</a>
-  </div>
-</div>
-
 <div class="container text-center">
   <h1 class="text-muted">Seleccione una opción arriba</h1>
 </div>
