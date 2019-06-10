@@ -16,7 +16,7 @@ export class StocktakingComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this._providerService.getStocks(1);
+    this._providerService.getStocks(JSON.parse(localStorage.getItem('actual_user')).id);
   }
 
   openCreateStock(action: boolean, stock: Object) {

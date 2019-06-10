@@ -50,7 +50,7 @@ export class CreateStocktakingComponent implements OnInit {
       description: this.stockFG.controls["description"].value,
       price: this.stockFG.controls["price"].value,
       count: this.stockFG.controls["count"].value,
-      idProvider: 1,
+      idProvider: JSON.parse(localStorage.getItem('actual_user')).id,
       idProduct: undefined,
       idCommodity: undefined
     };

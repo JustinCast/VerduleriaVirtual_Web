@@ -82,7 +82,7 @@ export class ProviderService {
     }).subscribe(
       () => {
         this.openSnackBar("Creado exitosamente");
-        this.getStocks(1);
+        this.getStocks(JSON.parse(localStorage.getItem('actual_user')).id);
       }
     )
   }
@@ -96,7 +96,7 @@ export class ProviderService {
     }).subscribe(
       () => {
         this.openSnackBar("Modificado exitosamente");
-        this.getStocks(1);
+        this.getStocks(JSON.parse(localStorage.getItem('actual_user')).id);
       }
     )
   }
@@ -115,7 +115,7 @@ export class ProviderService {
       data => {
         console.log("data"+JSON.stringify(data)),
         data[0].delete_commodity ? this.openSnackBar("Eliminado exitosamente") :  this.openSnackBar("No se puede eliminar el inventario"),
-        this.getStocks(1);
+        this.getStocks(JSON.parse(localStorage.getItem('actual_user')).id);
       }
     )
 
@@ -127,7 +127,7 @@ export class ProviderService {
       data => {
         console.log(data);
         this.openSnackBar("Bloqueado exitosamente"),
-        this.getStocks(1);
+        this.getStocks(JSON.parse(localStorage.getItem('actual_user')).id);
       }
     )
   }
@@ -138,7 +138,7 @@ export class ProviderService {
       data => {
         console.log(data);
         this.openSnackBar("Desbloqueado exitosamente"),
-        this.getStocks(1);
+        this.getStocks(JSON.parse(localStorage.getItem('actual_user')).id);
       }
     )
   }
