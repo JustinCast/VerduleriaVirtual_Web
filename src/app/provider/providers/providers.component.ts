@@ -27,12 +27,12 @@ export class ProvidersComponent implements OnInit {
 
   // Open dialog for create or update provider
   openDialog(){
-    // this.actualUser.id === 'admin' ?
-    // this._dialog.openCreateProviders(null).subscribe(newProvider => {
-    //   if(newProvider !== undefined)
-    //     this.listProviders.push(newProvider);
-    // })
-    //  : this._dialog.openCreateProviders(this.listProviders[0]);
+    this.actualUser.id === 'admin' ?
+    this._dialog.openCreateProviders(null).subscribe(newProvider => {
+      if(newProvider !== undefined)
+        this.listProviders.push(newProvider);
+    })
+     : this._dialog.openCreateProviders(this.listProviders[0]);
   }
   /**
      * Function to show snackbar

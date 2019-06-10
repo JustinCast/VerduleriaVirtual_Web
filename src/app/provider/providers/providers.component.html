@@ -20,10 +20,10 @@
       </div>
     </div>
   </div>
-  <button class="custom-button" *ngIf="actualUser.id === 'admin'" mat-fab color="primary" (click)="openDialog()">
-    <span style="font-size: 25px;">+</span>
-  </button>
 </div>
+<button id="buttonAdd" mat-fab *ngIf="actualUser.id === 'admin'" color="primary" (click)="openDialog()">
+  <mat-icon>add</mat-icon>
+</button>
 <div *ngIf="loading">
   <mat-spinner class="spinner"></mat-spinner>
 </div>

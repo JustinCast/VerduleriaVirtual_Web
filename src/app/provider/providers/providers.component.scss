@@ -4,6 +4,7 @@
   .main{
     display: flex;
     flex-direction: column;
+
     height: 100%;
   }
   .container{
@@ -67,11 +68,13 @@ agm-map {
   color: $primary-text-color;
   cursor: pointer;
 }
-.custom-button{
-  position: absolute;
-  top: 5%;
-  right: 5%;
-}
 .toggle{
   margin: 1% 2% 1% 2%;
+}
+
+#buttonAdd{
+  position: fixed;
+  right: 2%;
+  bottom: 2%;
+  background-color: $primary-color;
 }
