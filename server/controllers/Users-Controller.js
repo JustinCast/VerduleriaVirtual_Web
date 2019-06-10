@@ -61,11 +61,11 @@ function createUser(req, res) {
         `SELECT * FROM  insert_user('` +
         req.body.userName +
         `','` +
-        req.body.password +
+        password +
         `','` +
         req.body.fullName +
         `')`;
-      console.log(query);
+        
       client
         .query(query)
         .then(data => {
@@ -96,11 +96,9 @@ function checkLogin(req, res) {
         .then(data => {
           console.log(req.params.password)
           if (bcrypt.compareSync(req.params.password, data.rows[0]._password)) {
-            console.log("va a poder ingresar");
             res.status(200).json(true);
             client.end();
           } else {
-            console.log("NO va a poder ingresar");
             res.status(200).json(false);
             client.end();
           }
