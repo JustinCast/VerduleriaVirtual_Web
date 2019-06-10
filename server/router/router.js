@@ -20,7 +20,7 @@ api.get('/getProducts', ProductsController.getProducts);
 api.get('/orderByRanking/:productId', shopping.orderByRanking);
 api.get('/getUserInvoice/:user_id', shopping.getUserInvoice);
 api.post('/setLocation', shopping.setLocation);
-api.get('/getPurchasesInDateRange/:from/:to', ProductsController.getPurchasesInDateRange);
+api.get('/getPurchasesInDateRange/:id_usuario/:from/:to', ProductsController.getPurchasesInDateRange);
 api.get('/getPurchasesByProvider/:id_provider/:initial_date/:final_date', ProductsController.getPurchasesByProvider);
 api.put('/updateProductQuantity', shopping.updateProductQuantity);
 
@@ -57,7 +57,7 @@ api.get('/deleteCommodity/:commodity_id/:provider_id', StockController.deleteCom
 
 // Login
 api.post('/login',LoginWebController.login);
-api.get('/getProviders/:id',UsersController.getProviders);
+api.get('/getProviders/:id', UsersController.getProviders);
 
 // Provider
 api.post('/checkPassword',ProviderWebController.checkPassword);

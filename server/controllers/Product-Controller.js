@@ -69,8 +69,8 @@ function getPurchasesInDateRange(req, res) {
       console.log(`err when connecting on getPurchasesInDateRange: ${err}`);
     } else {
       let query = {
-        text: "SELECT * FROM get_purchases_in_date_range($1, $2)",
-        values: [JSON.stringify(req.params.from), JSON.stringify(req.params.to)]
+        text: "SELECT * FROM get_purchases_in_date_range($1, $2, $3)",
+        values: [req.params.id_usuario, JSON.stringify(req.params.from), JSON.stringify(req.params.to)]
       };
       client
         .query(query)

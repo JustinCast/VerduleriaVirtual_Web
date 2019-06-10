@@ -4,8 +4,8 @@ const bcrypt = require('bcrypt');
 
 /**
  * Function to get a user information
- * @param {userName, password} req
- * @param {userId, userName, userPassword, fullName, actualInvoice } res
+ * @param {userName, password} req 
+ * @param {userId, userName, userPassword, fullName, actualInvoice } res 
  */
 
 function getUser(req, res) {
@@ -13,95 +13,16 @@ function getUser(req, res) {
   var client = new pg.Client(config);
 
   client.connect(err => {
-    if (err) {
-      client.end();
-      res.status(400).json([]);
-      console.log(err);
-    } else {
-      const query =
-        `SELECT * FROM  get_user('` +
-        req.params.userName +
-        `','` +
-        req.params.password +
-        `')`;
-      console.log(query);
-      client
-        .query(query)
-        .then(data => {
-          res.status(200).json(data.rows);
-          client.end();
-        })
-        .catch(err => {
-          console.log(err);
-          client.end();
-          res.status(400).json([]);
-        });
-    }
-  });
-}
-
-/**
- * Function to create a user
- * @param {userName, password, fullName} req
- * @param {true} res
- */
-
-function createUser(req, res) {
-  var client = new pg.Client(config);
-
-  let password = bcrypt.hashSync(req.body.password, 10);
-
-  client.connect(err => {
-    if (err) {
-      client.end();
-      res.status(400).json([]);
-      console.log(err);
-    } else {
-      var query =
-        `SELECT * FROM  insert_user('` +
-        req.body.userName +
-        `','` +
-        password +
-        `','` +
-        req.body.fullName +
-        `')`;
-        
-      client
-        .query(query)
-        .then(data => {
-          res.status(200).json(data.rows);
-          client.end();
-        })
-        .catch(err => {
-          console.log(err);
-          client.end();
-          res.status(400).json([]);
-        });
-    }
-  });
-}
-
-
-function checkLogin(req, res) {
-
-  var client = new pg.Client(config);
-
-  client.connect(err => {
     if (err) { client.end(); res.status(400).json([]); console.log(err) }
     else {
-      var query1 = `select * from get_user_password('` + req.params.userName + `')`;
-      console.log(query1)
+      const query = `SELECT * FROM  get_user('` + req.params.userName + `')`;
+      console.log(query)
       client
-        .query(query1)
+        .query(query)
         .then(data => {
-          console.log(req.params.password)
-          if (bcrypt.compareSync(req.params.password, data.rows[0]._password)) {
-            res.status(200).json(true);
-            client.end();
-          } else {
-            res.status(200).json(false);
-            client.end();
-          }
+          res.status(200).json(
+            data.rows);
+          client.end();
         })
         .catch(
           err => {
@@ -146,6 +67,72 @@ function getProviders(req, res) {
     }
   });
 }
+
+/**
+ * Function to create a user
+ * @param {userName, password, fullName} req 
+ * @param {true} res 
+ */
+
+function createUser(req, res) {
+
+  var client = new pg.Client(config);
+
+  let password = bcrypt.hashSync(req.body.password, 10);
+
+  client.connect(err => {
+    if (err) { client.end(); res.status(400).json([]); console.log(err) }
+    else {
+      var query = `SELECT * FROM  insert_user('` + req.body.userName + `','` + password + `','` + req.body.fullName + `')`;
+      console.log(query);
+      client
+        .query(query)
+        .then(data => {
+          res.status(200).json(
+            data.rows);
+          client.end();
+        })
+        .catch(
+          err => {
+            console.log(err);
+            client.end();
+            res.status(400).json([]);
+          })
+    }
+  });
+}
+
+
+function checkLogin(req, res) {
+
+  var client = new pg.Client(config);
+
+  client.connect(err => {
+    if (err) { client.end(); res.status(400).json([]); console.log(err) }
+    else {
+      var query1 = `select * from get_user_password('` + req.params.userName + `')`;
+      client
+        .query(query1)
+        .then(data => {
+          if (bcrypt.compareSync(req.params.password, data.rows[0]._password)) {
+            res.status(200).json(true);
+            client.end();
+          } else {
+            console.log("NO va a poder ingresar");
+            res.status(200).json(false);
+            client.end();
+          }
+        })
+        .catch(
+          err => {
+            console.log(err);
+            client.end();
+            res.status(400).json([]);
+          })
+    }
+  });
+}
+
 
 module.exports = {
   createUser,
